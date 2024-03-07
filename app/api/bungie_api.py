@@ -14,3 +14,5 @@ TOKEN_URL = "https://www.bungie.net/platform/app/oauth/token/"
 REDIRECT_URL = ""
 
 session = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URL)
+
+auth_link = session.authorization_url(AUTH_URL)
