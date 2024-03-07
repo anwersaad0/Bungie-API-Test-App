@@ -16,3 +16,12 @@ REDIRECT_URL = ""
 session = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URL)
 
 auth_link = session.authorization_url(AUTH_URL)
+
+redirect_res = input("Paste redirect url with params here.")
+
+session.fetch_token(
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    token_url=TOKEN_URL,
+    authorization_response=redirect_res
+)
