@@ -11,7 +11,7 @@ CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
 AUTH_URL = "https://www.bungie.net/en/OAuth/Authorize"
 TOKEN_URL = "https://www.bungie.net/platform/app/oauth/token/"
 
-REDIRECT_URL = "placeholder"
+REDIRECT_URL = "placeholder url"
 
 session = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URL)
 
