@@ -27,3 +27,4 @@ session.fetch_token(
 )
 
 extra_headers = {'X-API-KEY': os.environ.get('API_KEY')}
+res = session.get(url="placeholder")
