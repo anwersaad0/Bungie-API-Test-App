@@ -11,7 +11,7 @@ function HomePage() {
 
     return (
         <main>
-            
+            <div>Testing</div>
         </main>
     )
 }
