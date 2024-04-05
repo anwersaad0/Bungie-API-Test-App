@@ -12,6 +12,12 @@ function HomePage() {
     return (
         <main>
             <div>Testing</div>
+
+            <div>
+                <div>
+                    API test here
+                </div>
+            </div>
         </main>
     )
 }
