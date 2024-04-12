@@ -10,17 +10,22 @@ const createAuth = (auth) => ({
 // });
 
 export const bungieAuthenticate = () => async (dispatch) => {
-    await fetch('https://www.bungie.net/Platform/App/OAuth/Token/', {
+    const res = await fetch('https://www.bungie.net/Platform/App/OAuth/Token/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Basic ${null}`
         },
-        body: new URLSearchParams({
+        body: JSON.stringify({
             'client_id': "{my-client-id}",
             'grant_type': "authorization_code",
             'code': authCode
-        }).toString()
+        })
     })
+
+    if (res.ok) {
+        const data = await res.json();
+    }
 }
 
 const initState = {};
