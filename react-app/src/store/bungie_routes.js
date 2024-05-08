@@ -1,8 +1,14 @@
 const CREATE_AUTH = "/CREATE_AUTH";
+const GET_D2_PROFILE = "/GET_D2_PROFILE";
 
 const createAuth = (auth) => ({
     type: CREATE_AUTH,
     payload: auth,
+})
+
+const getProfile = (profile) => ({
+    type: GET_D2_PROFILE,
+    payload: profile,
 })
 
 // const getItem = (item) => ({
@@ -25,11 +31,26 @@ export const bungieAuthenticate = () => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
+        dispatch(createAuth(data));
+    }
+}
+
+export const getD2Profile = (memType, memId) => async (dispatch) => {
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/${memType}/${memId}`)
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(getProfile(data));
     }
 }
 
 const initState = {};
 
-export default function reducer(state = initState, action) {
+function bungieReducer(state = initState, action) {
+    let newState;
+    switch(action.type) {
 
+    }
 }
+
+export default bungieReducer;
