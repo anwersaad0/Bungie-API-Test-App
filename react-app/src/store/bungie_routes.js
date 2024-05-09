@@ -49,7 +49,10 @@ const initState = {};
 function bungieReducer(state = initState, action) {
     let newState;
     switch(action.type) {
-
+        case GET_D2_PROFILE:
+            newState = {...state}
+            newState[action.profile] = action.profile;
+            return newState;
     }
 }
 

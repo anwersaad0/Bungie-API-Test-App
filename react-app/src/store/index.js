@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
+import bungieReducer from './bungie_routes';
 
 const rootReducer = combineReducers({
   session,
+  bungieInfo: bungieReducer
 });
 
 
