@@ -7,7 +7,7 @@ import { getD2Profile } from "../../store/bungie_routes";
 
 function HomePage() {
     const dispatch = useDispatch();
-    const {memType, memId} = useParams();
+    const {memId} = useParams();
 
     const profile = useSelector((state) => state.profile);
 
@@ -15,6 +15,8 @@ function HomePage() {
         dispatch(getD2Profile(memType, memId));
     }, [memType, memId, dispatch]);
 
+
+    console.log('profile', profile);
 
     return (
         <main>
@@ -27,7 +29,9 @@ function HomePage() {
 
                     API test here
 
-                    
+                    <div>
+                        {profile?.response}
+                    </div>
 
                 </div>
 

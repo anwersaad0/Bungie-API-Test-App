@@ -35,8 +35,8 @@ export const bungieAuthenticate = () => async (dispatch) => {
     }
 }
 
-export const getD2Profile = (memType, memId) => async (dispatch) => {
-    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/${memType}/${memId}`)
+export const getD2Profile = (memId) => async (dispatch) => {
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/${memId}/?components=200`);
 
     if (res.ok) {
         const data = await res.json()
@@ -51,7 +51,7 @@ function bungieReducer(state = initState, action) {
     switch(action.type) {
         case GET_D2_PROFILE:
             newState = {...state}
-            newState[action.profile] = action.profile;
+            newState[action.profile.membershipId] = action.profile;
             return newState;
     }
 }
