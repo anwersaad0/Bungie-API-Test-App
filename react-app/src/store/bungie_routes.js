@@ -1,6 +1,8 @@
 // const CREATE_AUTH = "/CREATE_AUTH";
 const GET_D2_PROFILE = "/GET_D2_PROFILE";
 
+//extra bungie API params here?
+
 // const createAuth = (auth) => ({
 //     type: CREATE_AUTH,
 //     payload: auth,
