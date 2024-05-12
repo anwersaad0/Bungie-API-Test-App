@@ -1,10 +1,10 @@
-const CREATE_AUTH = "/CREATE_AUTH";
+// const CREATE_AUTH = "/CREATE_AUTH";
 const GET_D2_PROFILE = "/GET_D2_PROFILE";
 
-const createAuth = (auth) => ({
-    type: CREATE_AUTH,
-    payload: auth,
-})
+// const createAuth = (auth) => ({
+//     type: CREATE_AUTH,
+//     payload: auth,
+// })
 
 const getProfile = (profile) => ({
     type: GET_D2_PROFILE,
@@ -14,26 +14,6 @@ const getProfile = (profile) => ({
 // const getItem = (item) => ({
 //     payload: item,
 // });
-
-export const bungieAuthenticate = () => async (dispatch) => {
-    const res = await fetch('https://www.bungie.net/Platform/App/OAuth/Token/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Basic ${null}`
-        },
-        body: JSON.stringify({
-            'client_id': "{my-client-id}",
-            'grant_type': "authorization_code",
-            'code': authCode
-        })
-    })
-
-    if (res.ok) {
-        const data = await res.json();
-        dispatch(createAuth(data));
-    }
-}
 
 export const getD2Profile = (memId) => async (dispatch) => {
     const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/${memId}/?components=200`);
@@ -53,6 +33,8 @@ function bungieReducer(state = initState, action) {
             newState = {...state}
             newState[action.profile.membershipId] = action.profile;
             return newState;
+        default:
+            return state;
     }
 }
 

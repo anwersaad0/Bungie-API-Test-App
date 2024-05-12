@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -9,11 +8,11 @@ function HomePage() {
     const dispatch = useDispatch();
     const {memId} = useParams();
 
-    const profile = useSelector((state) => state.profile);
+    const profile = useSelector((state) => state.bungieData.profile);
 
     useEffect(() => {
-        dispatch(getD2Profile(memType, memId));
-    }, [memType, memId, dispatch]);
+        dispatch(getD2Profile(memId));
+    }, [memId, dispatch]);
 
 
     console.log('profile', profile);
@@ -30,7 +29,7 @@ function HomePage() {
                     API test here
 
                     <div>
-                        {profile?.response}
+                        {profile?.Response}
                     </div>
 
                 </div>
