@@ -6,16 +6,16 @@ import { getD2Profile } from "../../store/bungie_routes";
 
 function HomePage() {
     const dispatch = useDispatch();
-    const {memId} = useParams();
-
-    const profile = useSelector((state) => state.bungieData.profile);
+    //const {memId} = useParams();
 
     useEffect(() => {
-        dispatch(getD2Profile(memId));
-    }, [memId, dispatch]);
+        dispatch(getD2Profile());
+    }, [dispatch]);
+
+    const profile = useSelector((state) => state.bungieData["[object Object]"]);
 
 
-    console.log('profile', profile);
+    console.log('profile', profile?.Response);
 
     return (
         <main>
@@ -29,7 +29,7 @@ function HomePage() {
                     API test here
 
                     <div>
-                        {profile?.Response}
+                        {JSON.stringify(profile?.Response)}
                     </div>
 
                 </div>
