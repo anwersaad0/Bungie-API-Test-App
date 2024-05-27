@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 //import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 //import Navigation from "./components/Navigation";
-import HomePage from "./components/HomePage";
+import D2Profile from "./components/D2Profile";
 
 function App() {
   // const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function App() {
 
         <Switch>
           <Route exact path="/test">
-            <HomePage />
+            <D2Profile />
           </Route>
         </Switch>
     </>

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getD2Profile } from "../../store/bungie_routes";
 
-function HomePage() {
+function D2Profile() {
     const dispatch = useDispatch();
     //const {memId} = useParams();
 
@@ -40,4 +40,4 @@ function HomePage() {
     )
 }
 
-export default HomePage;
+export default D2Profile;

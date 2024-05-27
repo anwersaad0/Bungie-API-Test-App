@@ -1,6 +1,8 @@
+const apiKey = process.env.API_KEY;
 
 // const CREATE_AUTH = "/CREATE_AUTH";
 const GET_D2_PROFILE = "/GET_D2_PROFILE";
+const GET_D2_ITEM = "/GET_D2_ITEM";
 
 // const createAuth = (auth) => ({
 //     type: CREATE_AUTH,
@@ -12,11 +14,16 @@ const getProfile = (profile) => ({
     profile,
 })
 
+const getItem = (item) => ({
+    type: GET_D2_ITEM,
+    item,
+})
+
 export const getD2Profile = () => async (dispatch) => {
     const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/4611686018483417802/?components=200`, {
         method: "GET",
         headers: {
-            "X-API-Key": 'c0478a4b74d44638b08c8973e626b35a'
+            "X-API-Key": apiKey
         },
     });
 
@@ -24,6 +31,19 @@ export const getD2Profile = () => async (dispatch) => {
         const data = await res.json()
         dispatch(getProfile(data));
         return data;
+    }
+}
+
+export const getD2Item = () => async (dispatch) => {
+    const res = await fetch('https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/', {
+        method: "GET",
+        headers: {
+            "X-API-Key": apiKey,
+        },
+    });
+
+    if (res.ok) {
+        const data = await res.json();
     }
 }
 
