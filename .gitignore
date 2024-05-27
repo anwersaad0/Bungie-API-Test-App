@@ -1,6 +1,6 @@
 .env
 app/
-migrations//
+migrations/
 __pycache__/
 *.py[cod]
 .venv
