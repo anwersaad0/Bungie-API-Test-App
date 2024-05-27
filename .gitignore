@@ -1,4 +1,6 @@
 .env
+app/
+migrations//
 __pycache__/
 *.py[cod]
 .venv
