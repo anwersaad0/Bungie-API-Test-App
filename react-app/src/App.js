@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 //import Navigation from "./components/Navigation";
 import D2Profile from "./components/D2Profile";
+import D2Item from "./components/D2Item";
 
 function App() {
   // const dispatch = useDispatch();
@@ -32,8 +33,11 @@ function App() {
       )} */}
 
         <Switch>
-          <Route exact path="/test">
+          <Route exact path="/profile">
             <D2Profile />
+          </Route>
+          <Route exact path="/item">
+            <D2Item />
           </Route>
         </Switch>
     </>

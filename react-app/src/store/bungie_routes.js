@@ -1,4 +1,5 @@
-const apiKey = process.env.API_KEY;
+//require('dotenv').config();
+const apiKey = process.env.REACT_APP_API_KEY;
 
 // const CREATE_AUTH = "/CREATE_AUTH";
 const GET_D2_PROFILE = "/GET_D2_PROFILE";
@@ -20,7 +21,9 @@ const getItem = (item) => ({
 })
 
 export const getD2Profile = () => async (dispatch) => {
-    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/4611686018483417802/?components=200`, {
+    //console.log('api key there?', apiKey);
+
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/4611686018483417802/?components=100`, {
         method: "GET",
         headers: {
             "X-API-Key": apiKey
@@ -44,6 +47,8 @@ export const getD2Item = () => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
+        dispatch(getItem(data));
+        return data;
     }
 }
 
@@ -55,6 +60,10 @@ function bungieReducer(state = initState, action) {
         case GET_D2_PROFILE:
             newState = {...state}
             newState[action.profile] = action.profile;
+            return newState;
+        case GET_D2_ITEM:
+            newState = {...state}
+            newState[action.item] = action.item;
             return newState;
         default:
             return state;
