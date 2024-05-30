@@ -8,31 +8,57 @@ function D2Profile() {
     const dispatch = useDispatch();
     //const {memId} = useParams();
 
-    useEffect(() => {
+    const profile = useSelector((state) => state.bungieData["[object Object]"]);
+
+    useEffect(async () => {
         dispatch(getD2Profile());
     }, [dispatch]);
 
-    const profile = useSelector((state) => state.bungieData["[object Object]"]);
+    const characterList = (profile ? Object.values(profile?.Response?.characters?.data) : []);
 
-
-    console.log('profile', profile?.Response);
+    console.log('profile', profile);
 
     return (
         <main>
-            
-            <div>Testing</div>
 
-            <div>
+            <div className="container-profile-page">
 
-                <div>
-
-                    API test here
+                {profile ? (
 
                     <div>
-                        {JSON.stringify(profile?.Response)}
+
+                        <div className="profile-username-container">
+                            Username: {profile?.Response?.profile?.data?.userInfo?.displayName}
+                        </div>
+
+                        <div className="profile-character-container">
+
+                            <div>
+
+                                {characterList.map(({ emblemBackgroundPath, light, stats }) => (
+                                    <div>
+
+                                        <img src={`https://www.bungie.net${emblemBackgroundPath}`}></img>
+
+                                        <div>{light}</div>
+
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                </div>
+                ) : (
+
+                    <div>
+
+                        <div> Fetching Data... </div>
+
+                    </div>
+                )}
 
             </div>
 
