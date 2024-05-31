@@ -52,6 +52,21 @@ export const getD2Item = () => async (dispatch) => {
     }
 }
 
+export const getD2ItemDetails = (itemHash) => async (dispatch) => {
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/Manifest/DestinyInventoryItemDefinition/${itemHash}`, {
+        method: "GET",
+        headers: {
+            "X-API-KEY": apiKey
+        }
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        //action here
+        return data;
+    }
+}
+
 const initState = {};
 
 function bungieReducer(state = initState, action) {
