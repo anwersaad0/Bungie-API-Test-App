@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getD2Profile } from "../../store/bungie_routes";
-import classList from "./classNumbers";
+import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
 
 function D2Profile() {
     const dispatch = useDispatch();
@@ -36,12 +36,12 @@ function D2Profile() {
 
                             <div>
 
-                                {characterList.map(({ emblemBackgroundPath, classType, light, stats }) => (
+                                {characterList.map(({ emblemBackgroundPath, raceType, classType, light, stats }) => (
                                     <div>
 
                                         <img src={`https://www.bungie.net${emblemBackgroundPath}`}></img>
 
-                                        <div>{classList[classType]} {light}</div>
+                                        <div>{RACE_LIST[raceType]} {CLASS_LIST[classType]} {light}</div>
 
                                     </div>
                                 ))}
