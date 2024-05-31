@@ -16,8 +16,9 @@ function D2Profile() {
     }, [dispatch]);
 
     const characterList = (profile ? Object.values(profile?.Response?.characters?.data) : []);
+    //const characterGear = (profile ? Object.values(profile?.Response?.characterEquipment?.data) : []);
 
-    console.log('profile', profile);
+    //console.log('profile', characterGear);
 
     return (
         <main>
@@ -38,6 +39,14 @@ function D2Profile() {
 
                                 {characterList.map(({ emblemBackgroundPath, raceType, classType, light, stats }) => (
                                     <div>
+
+                                        {/* {characterGear.map(({items}) => (
+                                            <div>
+
+
+
+                                            </div>
+                                        ))} */}
 
                                         <img src={`https://www.bungie.net${emblemBackgroundPath}`}></img>
 

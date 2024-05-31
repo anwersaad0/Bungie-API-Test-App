@@ -22,8 +22,8 @@ function D2Item() {
 
                 <div>
                     <img 
-                        src={`https://www.bungie.net${item?.Response?.data?.inventoryItem?.icon}`}
-                        alt={`https://www.bungie.net${item?.Response?.data?.inventoryItem?.secondaryIcon}`}
+                        src={`https://www.bungie.net${item?.Response?.displayProperties?.icon}`}
+                        alt={`https://www.bungie.net${item?.Response?.displayProperties?.name}`}
                     ></img>
                 </div>
 

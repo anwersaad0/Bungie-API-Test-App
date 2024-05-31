@@ -38,11 +38,11 @@ export const getD2Profile = () => async (dispatch) => {
 }
 
 export const getD2Item = () => async (dispatch) => {
-    const res = await fetch('https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/', {
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/Manifest/DestinyInventoryItemDefinition/3371017761`, {
         method: "GET",
         headers: {
-            "X-API-Key": apiKey,
-        },
+            "X-API-KEY": apiKey
+        }
     });
 
     if (res.ok) {
@@ -52,20 +52,6 @@ export const getD2Item = () => async (dispatch) => {
     }
 }
 
-export const getD2ItemDetails = (itemHash) => async (dispatch) => {
-    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/Manifest/DestinyInventoryItemDefinition/${itemHash}`, {
-        method: "GET",
-        headers: {
-            "X-API-KEY": apiKey
-        }
-    });
-
-    if (res.ok) {
-        const data = await res.json();
-        //action here
-        return data;
-    }
-}
 
 const initState = {};
 
