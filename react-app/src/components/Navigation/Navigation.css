@@ -5,3 +5,13 @@
 .hidden {
   display: none;
 }
+
+.nav-container {
+  display: flex;
+  background-color: rgb(175, 175, 175);
+  margin: 0px;
+  justify-content: space-evenly;
+  list-style-type: none;
+  
+  padding: 18px 0px;
+}

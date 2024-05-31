@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 //import SignupFormPage from "./components/SignupFormPage";
 //import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
-//import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation";
 import D2Profile from "./components/D2Profile";
 import D2Item from "./components/D2Item";
 
@@ -31,6 +31,8 @@ function App() {
           </Route>
         </Switch>
       )} */}
+
+        <Navigation />
 
         <Switch>
           <Route exact path="/profile">
