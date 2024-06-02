@@ -38,9 +38,7 @@ function App() {
           <Route exact path="/profile">
             <D2Profile />
           </Route>
-          <Route exact path="/item">
-            <D2Item />
-          </Route>
+          
         </Switch>
     </>
   );

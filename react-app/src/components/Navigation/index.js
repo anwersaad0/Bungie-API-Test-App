@@ -16,6 +16,7 @@ function Navigation({ isLoaded }){
 			<li>
 				<NavLink exact to="/profile">Inspect Player</NavLink>
 			</li>
+
 			{/* {isLoaded && (
 				<li>
 					<ProfileButton user={sessionUser} />

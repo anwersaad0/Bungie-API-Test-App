@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getD2Profile } from "../../store/bungie_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
+import D2Item from "../D2Item";
 
 function D2Profile() {
     const dispatch = useDispatch();
@@ -16,9 +17,11 @@ function D2Profile() {
     }, [dispatch]);
 
     const characterList = (profile ? Object.values(profile?.Response?.characters?.data) : []);
-    //const characterGear = (profile ? Object.values(profile?.Response?.characterEquipment?.data) : []);
+    const characterGear = (profile ? Object.values(profile?.Response?.characterEquipment?.data) : []);
 
-    //console.log('profile', characterGear);
+    const characterZip = (profile ? characterList.map((x, i) => [x, characterGear[i]]) : []);
+
+    console.log('profile', characterZip);
 
     return (
         <main>
@@ -37,20 +40,20 @@ function D2Profile() {
 
                             <div>
 
-                                {characterList.map(({ emblemBackgroundPath, raceType, classType, light, stats }) => (
+                                {characterZip.map(([character, equippedGear]) => (
                                     <div>
 
-                                        {/* {characterGear.map(({items}) => (
-                                            <div>
+                                        <img src={`https://www.bungie.net${character?.emblemBackgroundPath}`}></img>
 
+                                        <div>
+                                            {RACE_LIST[character?.raceType]} {CLASS_LIST[character?.classType]} {character?.light}
+                                        </div>
 
-
-                                            </div>
-                                        ))} */}
-
-                                        <img src={`https://www.bungie.net${emblemBackgroundPath}`}></img>
-
-                                        <div>{RACE_LIST[raceType]} {CLASS_LIST[classType]} {light}</div>
+                                        <div>
+                                            <D2Item itemHash={equippedGear?.items[0]?.itemHash} />
+                                            {/* <D2Item itemHash={equippedGear?.items[1]?.itemHash} />
+                                            <D2Item itemHash={equippedGear?.items[2]?.itemHash} /> */}
+                                        </div>
 
                                     </div>
                                 ))}
