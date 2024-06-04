@@ -21,7 +21,13 @@ const initState = {};
 function manifestReducer(state = initState, action) {
     let newState;
     switch(action.type) {
+        case GET_D2_MANIFEST:
+            newState = {...state}
+            newState[action.manifest] = action.manifest;
+            return newState;
         default:
             return state;
     }
 }
+
+export default manifestReducer;
