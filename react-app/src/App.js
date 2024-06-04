@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import D2Profile from "./components/D2Profile";
 import D2Item from "./components/D2Item";
+import HomePage from "./components/HomePage";
 
 function App() {
   // const dispatch = useDispatch();
@@ -38,7 +39,9 @@ function App() {
           <Route exact path="/profile">
             <D2Profile />
           </Route>
-          
+          <Route exact path="/">
+            <HomePage />
+          </Route>
         </Switch>
     </>
   );

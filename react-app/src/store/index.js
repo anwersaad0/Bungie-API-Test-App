@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import bungieReducer from './bungie_routes';
 import bungieItemReducer from './bungie_item_routes';
+import manifestReducer from './bungie_manifest_routes';
 
 const rootReducer = combineReducers({
   session,
   bungieData: bungieReducer,
-  bungieItemData: bungieItemReducer
+  bungieItemData: bungieItemReducer,
+  manifest: manifestReducer,
 });
 
 
