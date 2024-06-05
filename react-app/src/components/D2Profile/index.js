@@ -6,6 +6,7 @@ import { getD2Profile } from "../../store/bungie_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
 import D2Item from "../D2Item";
 
+
 function D2Profile() {
     const dispatch = useDispatch();
     //const {memId} = useParams();

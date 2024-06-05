@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 
-import { getJsonDefinitions } from "./store/bungie_manifest_routes";
+//import { DefinitionsProvider, loadDefs, getInventoryItemDefs, includeTables } from '@d2api/manifest-react';
+
 
 import Navigation from "./components/Navigation";
 import D2Profile from "./components/D2Profile";
