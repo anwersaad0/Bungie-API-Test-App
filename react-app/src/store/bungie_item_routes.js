@@ -23,7 +23,7 @@ export const getD2Item = (itemHash) => async (dispatch) => {
 }
 
 export const getCharacterItems = (...hashes) => async (dispatch) => {
-
+    //...
 }
 
 const initState = {};

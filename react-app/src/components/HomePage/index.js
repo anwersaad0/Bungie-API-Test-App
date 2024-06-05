@@ -6,11 +6,11 @@ import { getJsonDefinitions } from "../../store/bungie_manifest_routes";
 function HomePage() {
     const dispatch = useDispatch();
 
-    const definitions = useSelector((state) => state.manifest['[object Object]']);
+    // const definitions = useSelector((state) => state.manifest['[object Object]']);
 
-    useEffect(() => {
-        dispatch(getJsonDefinitions());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getJsonDefinitions());
+    // }, [dispatch]);
 
     //console.log('defs', definitions);
 

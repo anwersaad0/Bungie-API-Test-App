@@ -1,3 +1,4 @@
+const fs = require('browserify-fs');
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const GET_D2_MANIFEST = "/GET_D2_MANIFEST";
@@ -27,8 +28,14 @@ export const getJsonDefinitions = () => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        console.log('data', data);
-        dispatch(getDefinitions(data));
+        //console.log('data', data);
+        //dispatch(getDefinitions(data));
+
+        // await fs.writeFile('./definitions.json', JSON.stringify(data.DestinyInventoryItemLiteDefinition), (err) => {
+        //     if (err) {
+        //         throw err;
+        //     }
+        // })
     }
 }
 

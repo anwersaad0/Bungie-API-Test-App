@@ -51,8 +51,7 @@ function D2Profile() {
 
                                         <div>
                                             <D2Item itemHash={equippedGear?.items[0]?.itemHash} />
-                                            {/* <D2Item itemHash={equippedGear?.items[1]?.itemHash} />
-                                            <D2Item itemHash={equippedGear?.items[2]?.itemHash} /> */}
+                                            
                                         </div>
 
                                     </div>
