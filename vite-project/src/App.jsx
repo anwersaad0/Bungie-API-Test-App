@@ -6,6 +6,7 @@ import viteLogo from '/vite.svg'
 
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
+import D2Profile from './components/D2Profile';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -36,7 +37,8 @@ function App() {
       <Navigation />
 
       <Routes>
-        <Route exact path="/" element={<HomePage/>} />
+        <Route path='/profile' element={<D2Profile />} />
+        <Route path="/" element={<HomePage/>} />
       </Routes>
     </>
   )

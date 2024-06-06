@@ -9,11 +9,11 @@ function Navigation({ isLoaded }){
 	return (
 		<ul className='nav-container'>
 			<li>
-				<NavLink exact to="/">Home</NavLink>
+				<NavLink to="/">Home</NavLink>
 			</li>
 
 			<li>
-				<NavLink exact to="/profile">Inspect Player</NavLink>
+				<NavLink to="/profile">Inspect Player</NavLink>
 			</li>
 		</ul>
 	);

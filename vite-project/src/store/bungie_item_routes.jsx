@@ -1,4 +1,4 @@
-const apiKey = import.meta.env.REACT_APP_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const GET_D2_ITEM = "/GET_D2_ITEM";
 

@@ -1,4 +1,4 @@
-const apiKey = import.meta.env.REACT_APP_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const GET_D2_PROFILE = "/GET_D2_PROFILE";
 
@@ -8,7 +8,7 @@ const getProfile = (profile) => ({
 })
 
 export const getD2Profile = () => async (dispatch) => {
-    //console.log('api key there?', apiKey);
+    console.log('api key there?', apiKey);
 
     const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/4611686018483417802/?components=100,200,205`, {
         method: "GET",
