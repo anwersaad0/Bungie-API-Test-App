@@ -1,1 +1,0 @@
-Manifest definitions go here!
