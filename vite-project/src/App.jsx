@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import { Routes, Route } from "react-router-dom";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+//import './App.css'
 
 import HomePage from './components/HomePage';
+import Navigation from './components/Navigation';
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
   return (
     <>
@@ -31,11 +33,11 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
 
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-      </Switch>
+      <Navigation />
+
+      <Routes>
+        <Route exact path="/" element={<HomePage/>} />
+      </Routes>
     </>
   )
 }
