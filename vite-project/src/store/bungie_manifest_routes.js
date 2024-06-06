@@ -1,4 +1,4 @@
-const fs = require('browserify-fs');
+//const fs = require('browserify-fs');
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const GET_D2_MANIFEST = "/GET_D2_MANIFEST";
