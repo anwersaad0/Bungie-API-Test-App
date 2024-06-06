@@ -13,7 +13,7 @@ function D2Profile() {
 
     const profile = useSelector((state) => state.bungieData["[object Object]"]);
 
-    useEffect(async () => {
+    useEffect(() => {
         dispatch(getD2Profile());
     }, [dispatch]);
 
