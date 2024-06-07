@@ -6,6 +6,7 @@ import { getJsonDefinitions } from "../../store/bungie_manifest_routes";
 import { DefinitionsProvider, verbose, setApiKey, loadDefs, getInventoryItemDef, getInventoryItemLiteDef, getAllInventoryItemLiteDefs, includeTables,} from '@d2api/manifest-react';
 
 import { getProfile, getCharacter, getVendor, BungieMembershipType, DestinyComponentType } from "bungie-api-ts/destiny2";
+import { getBungieNetUserById, getMembershipDataForCurrentUser } from "bungie-api-ts/user";
 
 verbose();
 
