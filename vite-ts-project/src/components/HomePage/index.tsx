@@ -1,0 +1,63 @@
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { DefinitionsProvider, verbose, setApiKey, loadDefs, getInventoryItemDef, getInventoryItemLiteDef, getAllInventoryItemLiteDefs, includeTables,} from '@d2api/manifest-react';
+
+import { getProfile, getCharacter, getVendor, BungieMembershipType, DestinyComponentType, DestinyCharacterResponse, DestinyItemType, DestinyVendorResponse } from "bungie-api-ts/destiny2";
+import { getBungieNetUserById, getMembershipDataForCurrentUser } from "bungie-api-ts/user";
+
+verbose();
+
+includeTables(["InventoryItem"]);
+
+setApiKey(import.meta.env.VITE_API_KEY);
+
+loadDefs();
+
+function HomePage() {
+    const fallback = <b>Loading example...</b>;
+
+    return (
+
+        <>
+
+            <h1>well?</h1>
+
+            <DefinitionsProvider fallback={fallback}>
+
+                <ExampleItem itemHash={2575506895} />
+
+            </DefinitionsProvider>
+
+        </>
+
+    )
+}
+
+function ExampleItem({itemHash}: {itemHash?: number}) {
+    const exampleWep = getInventoryItemDef(itemHash);
+    const icon = exampleWep?.displayProperties.icon; 
+
+    return (
+        <>
+            <img src={`https://www.bungie.net${icon}`}></img>
+        </>
+    )
+}
+
+function ExampleProfile({memId}: {memId: string}) {
+    useEffect(() => {
+        (async () => {
+
+        })
+    })
+
+    return (
+        <>
+        
+        </>
+    )
+}
+
+export default HomePage;
