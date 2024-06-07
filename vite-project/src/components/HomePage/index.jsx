@@ -3,25 +3,44 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getJsonDefinitions } from "../../store/bungie_manifest_routes";
 
+import { DefinitionsProvider, verbose, setApiKey, loadDefs, getInventoryItemDef, getInventoryItemLiteDef, getAllInventoryItemLiteDefs, includeTables } from '@d2api/manifest-react';
+
+verbose();
+
+includeTables(["InventoryItem"]);
+
+setApiKey(import.meta.env.VITE_API_KEY);
+
+loadDefs();
+
 function HomePage() {
-    const dispatch = useDispatch();
-
-    // const definitions = useSelector((state) => state.manifest['[object Object]']);
-
-    // useEffect(() => {
-    //     dispatch(getJsonDefinitions());
-    // }, [dispatch]);
-
-    //console.log('defs', definitions);
+    const fallback = <b>Loading example...</b>;
 
     return (
 
-        <main>
+        <>
 
             <h1>well?</h1>
 
-        </main>
+            <DefinitionsProvider fallback={fallback}>
 
+                <ExampleItem itemHash={2575506895} />
+
+            </DefinitionsProvider>
+
+        </>
+
+    )
+}
+
+function ExampleItem({itemHash}) {
+    const exampleWep = getInventoryItemDef(itemHash);
+    const icon = exampleWep?.displayProperties.icon; 
+
+    return (
+        <>
+            <img src={`https://www.bungie.net${icon}`}></img>
+        </>
     )
 }
 
