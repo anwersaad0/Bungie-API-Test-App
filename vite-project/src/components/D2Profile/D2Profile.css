@@ -1,0 +1,8 @@
+.equipped-inner-container {
+    display: flex;
+}
+
+.equipped-weapons-grid {
+    display: flex;
+    flex-direction: column;
+}

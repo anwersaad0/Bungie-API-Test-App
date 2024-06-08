@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getD2Profile } from "../../store/bungie_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
 import D2Item from "../D2Item";
+import './D2Profile.css';
 
 import {
     DefinitionsProvider,
@@ -49,7 +50,7 @@ function D2Profile() {
                     <div>
 
                         <div className="profile-username-container">
-                            Username: {profile?.Response?.profile?.data?.userInfo?.displayName}
+                            Username: {profile?.Response?.profile?.data?.userInfo?.displayName}#{profile?.Response?.profile?.data?.userInfo?.bungieGlobalDisplayNameCode}
                         </div>
 
                         <div className="profile-character-container">
@@ -65,22 +66,42 @@ function D2Profile() {
                                             {RACE_LIST[character?.raceType]} {CLASS_LIST[character?.classType]} {character?.light}
                                         </div>
 
-                                        <div>
-                                            {/* <D2Item itemHash={equippedGear?.items[0]?.itemHash} /> */}
+                                        <div className="equipped-container">
 
                                             <DefinitionsProvider fallback={fallback}>
 
-                                                {/* <CharacterInv itemHashes={[
-                                                    equippedGear?.items[0]?.itemHash,
-                                                    equippedGear?.items[1]?.itemHash
-                                                ]} /> */}
+                                                <div className="equipped-inner-container">
+                                                    <div className="equipped-weapons-container">
 
-                                                <ExampleItem itemHash={equippedGear?.items[0]?.itemHash} />
-                                                <ExampleItem itemHash={equippedGear?.items[1]?.itemHash} />
-                                                <ExampleItem itemHash={equippedGear?.items[2]?.itemHash} />
+                                                        <div className="equipped-weapon-label">
+                                                            Equipped Weapons
+                                                        </div>
+
+                                                        <div className="equipped-weapon-grid">
+                                                            <ExampleItem itemHash={equippedGear?.items[0]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[1]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[2]?.itemHash} />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="equipped-armor-container">
+
+                                                        <div className="equipped-armor-label">
+                                                            Equipped Armor
+                                                        </div>
+
+                                                        <div className="equipped-armor-grid">
+                                                            <ExampleItem itemHash={equippedGear?.items[3]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[4]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[5]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[6]?.itemHash} />
+                                                            <ExampleItem itemHash={equippedGear?.items[7]?.itemHash} />
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                             </DefinitionsProvider>
-                                            
+
                                         </div>
 
                                     </div>
@@ -108,7 +129,7 @@ function D2Profile() {
 }
 
 //This doesn't work rn, issues with iteration
-function CharacterInv({itemHashes}) {
+function CharacterInv({ itemHashes }) {
     const items = [];
     const icons = [];
 
@@ -133,9 +154,9 @@ function CharacterInv({itemHashes}) {
 }
 
 //This does work rn tho lmao
-function ExampleItem({itemHash}) {
+function ExampleItem({ itemHash }) {
     const exampleWep = getInventoryItemLiteDef(itemHash);
-    const icon = exampleWep?.displayProperties.icon; 
+    const icon = exampleWep?.displayProperties.icon;
 
     return (
         <>
