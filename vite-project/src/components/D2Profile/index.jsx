@@ -6,10 +6,25 @@ import { getD2Profile } from "../../store/bungie_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
 import D2Item from "../D2Item";
 
+import {
+    DefinitionsProvider,
+    verbose,
+    setApiKey,
+    loadDefs,
+    getInventoryItemDef,
+    getInventoryItemLiteDef,
+    includeTables
+} from '@d2api/manifest-react';
+
+verbose();
+includeTables(["InventoryItemLite"]);
+setApiKey(import.meta.env.VITE_API_KEY);
+loadDefs();
 
 function D2Profile() {
     const dispatch = useDispatch();
     //const {memId} = useParams();
+    const fallback = <b>Loading equipped gear...</b>;
 
     const profile = useSelector((state) => state.bungieData["[object Object]"]);
 
@@ -51,7 +66,20 @@ function D2Profile() {
                                         </div>
 
                                         <div>
-                                            <D2Item itemHash={equippedGear?.items[0]?.itemHash} />
+                                            {/* <D2Item itemHash={equippedGear?.items[0]?.itemHash} /> */}
+
+                                            <DefinitionsProvider fallback={fallback}>
+
+                                                {/* <CharacterInv itemHashes={[
+                                                    equippedGear?.items[0]?.itemHash,
+                                                    equippedGear?.items[1]?.itemHash
+                                                ]} /> */}
+
+                                                <ExampleItem itemHash={equippedGear?.items[0]?.itemHash} />
+                                                <ExampleItem itemHash={equippedGear?.items[1]?.itemHash} />
+                                                <ExampleItem itemHash={equippedGear?.items[2]?.itemHash} />
+
+                                            </DefinitionsProvider>
                                             
                                         </div>
 
@@ -76,6 +104,43 @@ function D2Profile() {
             </div>
 
         </main>
+    )
+}
+
+//This doesn't work rn, issues with iteration
+function CharacterInv({itemHashes}) {
+    const items = [];
+    const icons = [];
+
+    for (let itemHash of itemHashes) {
+        const item = getInventoryItemLiteDef(itemHash);
+        items.push(item);
+        icons.push(item?.displayProperties.icon);
+    }
+
+    //const item = getInventoryItemDef(itemHash);
+    //const icon = item?.displayProperties.icon;
+
+    return (
+        <>
+            {items.map(([displayProperties]) => (
+                <div>
+                    <img src={`https://www.bungie.net${displayProperties?.icon}`}></img>
+                </div>
+            ))}
+        </>
+    )
+}
+
+//This does work rn tho lmao
+function ExampleItem({itemHash}) {
+    const exampleWep = getInventoryItemLiteDef(itemHash);
+    const icon = exampleWep?.displayProperties.icon; 
+
+    return (
+        <>
+            <img src={`https://www.bungie.net${icon}`}></img>
+        </>
     )
 }
 

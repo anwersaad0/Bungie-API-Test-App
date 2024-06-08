@@ -10,7 +10,7 @@ import { getBungieNetUserById, getMembershipDataForCurrentUser } from "bungie-ap
 
 verbose();
 
-includeTables(["InventoryItem"]);
+includeTables(["InventoryItem", "InventoryItemLite"]);
 
 setApiKey(import.meta.env.VITE_API_KEY);
 
@@ -37,26 +37,12 @@ function HomePage() {
 }
 
 function ExampleItem({itemHash}) {
-    const exampleWep = getInventoryItemDef(itemHash);
+    const exampleWep = getInventoryItemLiteDef(itemHash);
     const icon = exampleWep?.displayProperties.icon; 
 
     return (
         <>
             <img src={`https://www.bungie.net${icon}`}></img>
-        </>
-    )
-}
-
-function ExampleProfile({memId}) {
-    useEffect(() => {
-        (async () => {
-
-        })
-    })
-
-    return (
-        <>
-        
         </>
     )
 }
