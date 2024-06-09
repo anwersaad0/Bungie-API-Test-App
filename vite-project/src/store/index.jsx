@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { thunk } from 'redux-thunk';
 import logger from 'redux-logger';
-import bungieReducer from './bungie_routes';
+import bungieReducer from './bungie_profile_routes';
 import bungieItemReducer from './bungie_item_routes';
 import manifestReducer from './bungie_manifest_routes';
 

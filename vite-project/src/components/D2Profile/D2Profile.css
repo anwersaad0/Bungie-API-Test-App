@@ -2,7 +2,18 @@
     display: flex;
 }
 
-.equipped-weapons-grid {
+.equipped-weapon-grid, .equipped-armor-grid {
     display: flex;
     flex-direction: column;
+}
+
+.item-icon-container {
+    width: 64px;
+    height: 64px;
+
+    margin-top: 8px;
+}
+
+.item-icon {
+    width: 100%;
 }

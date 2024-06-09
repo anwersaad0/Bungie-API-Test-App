@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getD2Profile } from "../../store/bungie_routes";
+import { getD2Profile } from "../../store/bungie_profile_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
 import D2Item from "../D2Item";
 import './D2Profile.css';
@@ -14,7 +14,7 @@ import {
     loadDefs,
     getInventoryItemDef,
     getInventoryItemLiteDef,
-    includeTables
+    includeTables,
 } from '@d2api/manifest-react';
 
 verbose();
@@ -159,9 +159,9 @@ function ExampleItem({ itemHash }) {
     const icon = exampleWep?.displayProperties.icon;
 
     return (
-        <>
-            <img src={`https://www.bungie.net${icon}`}></img>
-        </>
+        <div className="item-icon-container">
+            <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
+        </div>
     )
 }
 
