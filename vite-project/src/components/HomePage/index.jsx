@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getJsonDefinitions } from "../../store/bungie_manifest_routes";
+//import { getJsonDefinitions } from "../../store/bungie_manifest_routes";
 
 import { DefinitionsProvider, verbose, setApiKey, loadDefs, getInventoryItemDef, getInventoryItemLiteDef, getAllInventoryItemLiteDefs, includeTables,} from '@d2api/manifest-react';
 

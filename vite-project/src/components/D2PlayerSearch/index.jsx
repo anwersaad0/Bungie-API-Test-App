@@ -1,15 +1,12 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getD2CharacterItems } from "../../store/bungie_item_routes";
 
-function D2CharInv(...hashes) {
+function D2PlayerSearch(...hashes) {
     const dispatch = useDispatch();
 
-    const charItems = useSelector((state) => state.bungieItemData);
-
     useEffect(() => {
-        dispatch(getD2CharacterItems(...hashes));
+        
     }, [dispatch]);
 
     return (
@@ -19,4 +16,4 @@ function D2CharInv(...hashes) {
     )
 }
 
-export default D2CharInv;
+export default D2PlayerSearch;
