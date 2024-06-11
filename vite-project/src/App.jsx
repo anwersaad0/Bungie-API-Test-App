@@ -7,6 +7,7 @@ import viteLogo from '/vite.svg'
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import D2Profile from './components/D2Profile';
+import D2PlayerSearch from './components/D2PlayerSearch';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Navigation />
 
       <Routes>
+        <Route path="/search/player" element={<D2PlayerSearch />} />
         <Route path='/profile' element={<D2Profile />} />
         <Route path="/" element={<HomePage/>} />
       </Routes>

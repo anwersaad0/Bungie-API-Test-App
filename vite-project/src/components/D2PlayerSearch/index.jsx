@@ -6,22 +6,31 @@ import { getPlayersByName, getPlayerByDisplayParams } from "../../store/bungie_p
 function D2PlayerSearch() {
     const dispatch = useDispatch();
 
-    const players = useSelector((state) => state.players);
-    const playerDetailed = useSelector((state) => state.player);
+    let players;
+    let playerDetailed;
 
     const [username, setUsername] = useState('');
     const [nameCode, setNameCode] = useState('');
 
-    useEffect(() => {
-        dispatch(getPlayersByName(username));
-        dispatch(getPlayerByDisplayParams(username, nameCode));
-    }, [username, nameCode, dispatch]);
+    // useEffect(() => {
+
+    // }, [username, nameCode]);
 
     const handleSearch = async (e) => {
-        e.preventdefault();
+        e.preventDefault();
 
         if (!username) return;
 
+        players = await dispatch(getPlayersByName(username));
+
+    }
+
+    const handleDetailedSearch = async (e) => {
+        e.preventDefault();
+
+        if (!username || !nameCode) return;
+
+        playerDetailed = await dispatch(getPlayerByDisplayParams(username, nameCode));
 
     }
 
@@ -30,17 +39,29 @@ function D2PlayerSearch() {
 
             <div>
 
-                <input 
-                    placeholder="Enter Player Name"
-                    onChange={e => setUsername(e.target.value)}
-                    className="player-search"
-                ></input>
+                <div>
 
-                <input
-                    type="number"
-                    onChange={e => setNameCode(e.target.value)}
-                    className="number-search"
-                ></input>
+                    <input
+                        placeholder="Enter Player Name"
+                        onChange={e => setUsername(e.target.value)}
+                        className="player-search"
+                    ></input>
+
+                    <input
+                        type="number"
+                        onChange={e => setNameCode(e.target.value)}
+                        className="number-search"
+                    ></input>
+
+                </div>
+
+                <div>
+
+                    <button type="submit">Search</button>
+
+                    <button type="submit">Search Advanced</button>
+
+                </div>
 
             </div>
 
