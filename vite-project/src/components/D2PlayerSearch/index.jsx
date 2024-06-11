@@ -11,7 +11,16 @@ function D2PlayerSearch() {
 
     const [username, setUsername] = useState('');
     const [nameCode, setNameCode] = useState('');
-    //const [searchErrs, setSearchErrs] = useState([]);
+
+    const [showSearch, setShowSearch] = useState(false);
+    const [showAdvSearch, setShowAdvSearch] = useState(false);
+
+    const searchClass = "search-div" + (showSearch ? "": " hidden");
+    const advSearchClass = "adv-search-div" + (showAdvSearch ? "": " hidden");
+
+    useEffect(() => {
+        //this is here to ensure the search result elements do hide when needed
+    }, [showSearch, showAdvSearch]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -21,6 +30,9 @@ function D2PlayerSearch() {
         if (!username) return;
 
         players = await dispatch(getPlayersByName(username));
+
+        setShowAdvSearch(false);
+        setShowSearch(true);
 
         //console.log('players', players);
 
@@ -33,6 +45,9 @@ function D2PlayerSearch() {
 
         playerDetailed = await dispatch(getPlayerByDisplayParams(username, nameCode));
         
+        setShowSearch(false);
+        setShowAdvSearch(true);
+
         //console.log('player', playerDetailed);
 
     }
@@ -40,7 +55,12 @@ function D2PlayerSearch() {
     return (
         <main>
 
-            <div>
+            <div className="containers-search-ui">
+
+                <div>
+                    <h1>Search Player</h1>
+                    <h3>To use Search Advanced, type in both the username and the display code</h3>
+                </div>
 
                 <div>
 
@@ -68,11 +88,21 @@ function D2PlayerSearch() {
 
             </div>
 
-            <div>
+            <div className="containers-search">
 
-                <div>
+                <div className="search-container">
 
+                    <div className={searchClass}>
+                        Testing normal search
+                    </div>
 
+                </div>
+
+                <div className="adv-search-container">
+
+                    <div className={advSearchClass}>
+                        Testing advanced search
+                    </div>
 
                 </div>
 
