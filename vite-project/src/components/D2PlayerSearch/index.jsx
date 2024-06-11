@@ -11,17 +11,18 @@ function D2PlayerSearch() {
 
     const [username, setUsername] = useState('');
     const [nameCode, setNameCode] = useState('');
-
-    // useEffect(() => {
-
-    // }, [username, nameCode]);
+    //const [searchErrs, setSearchErrs] = useState([]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
 
+        //console.log('username', username);
+
         if (!username) return;
 
         players = await dispatch(getPlayersByName(username));
+
+        //console.log('players', players);
 
     }
 
@@ -31,6 +32,8 @@ function D2PlayerSearch() {
         if (!username || !nameCode) return;
 
         playerDetailed = await dispatch(getPlayerByDisplayParams(username, nameCode));
+        
+        //console.log('player', playerDetailed);
 
     }
 
@@ -57,9 +60,9 @@ function D2PlayerSearch() {
 
                 <div>
 
-                    <button type="submit">Search</button>
+                    <button type="submit" onClick={e => handleSearch(e)}>Search</button>
 
-                    <button type="submit">Search Advanced</button>
+                    <button type="submit" onClick={e => handleDetailedSearch(e)}>Search Advanced</button>
 
                 </div>
 

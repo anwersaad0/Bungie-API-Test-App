@@ -19,9 +19,7 @@ export const getPlayersByName = (playerName) => async (dispatch) => {
         headers: {
             "X-API-Key": apiKey
         },
-        body: {
-            "displayNamePrefix": playerName
-        }
+        body: JSON.stringify({ "displayNamePrefix": playerName })
     });
 
     if (res.ok) {
@@ -37,10 +35,10 @@ export const getPlayerByDisplayParams = (playerName, playerCode) => async (dispa
         headers: {
             "X-API-Key": apiKey
         },
-        body: {
+        body: JSON.stringify({
             "displayName": playerName,
             "displayNameCode": playerCode
-        }
+        })
     });
 
     if (res.ok) {
@@ -57,13 +55,11 @@ function playersReducer(state = initState, action) {
     switch(action.type) {
         case GET_PLAYERS:
             newState = {...state};
-            action.players.Response.searchResults.forEach(player => {
-                newState[player.bungieGlobalDisplayNameCode] = action.player
-            });
+            newState[action.players] = action.players;
             return newState;
         case GET_PLAYER_DETAILED:
             newState = {...state};
-            newState[action.player.Response] = action.player;
+            newState[action.player] = action.player;
             return newState;
         default:
             return state;
