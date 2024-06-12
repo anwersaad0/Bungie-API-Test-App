@@ -20,7 +20,7 @@ function D2PlayerSearch() {
 
     useEffect(() => {
         //this is here to ensure the search result elements do hide when needed
-    }, [showSearch, showAdvSearch]);
+    }, [showSearch, showAdvSearch, players, playerDetailed, dispatch]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -34,7 +34,7 @@ function D2PlayerSearch() {
         setShowAdvSearch(false);
         setShowSearch(true);
 
-        //console.log('players', players);
+        console.log('players', players);
 
     }
 
@@ -51,6 +51,8 @@ function D2PlayerSearch() {
         //console.log('player', playerDetailed);
 
     }
+
+    console.log('players response', players);
 
     return (
         <main>
@@ -94,6 +96,19 @@ function D2PlayerSearch() {
 
                     <div className={searchClass}>
                         Testing normal search
+
+                        <div>
+
+                            {/* {players?.Response?.searchResults.map(({bungieGlobalDisplayName}) => (
+                                <div>
+
+                                    <div>{bungieGlobalDisplayName}</div>
+
+                                </div>
+                            ))} */}
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -102,6 +117,13 @@ function D2PlayerSearch() {
 
                     <div className={advSearchClass}>
                         Testing advanced search
+
+                        <div>
+
+
+
+                        </div>
+
                     </div>
 
                 </div>
