@@ -6,8 +6,8 @@ import { getPlayersByName, getPlayerByDisplayParams } from "../../store/bungie_p
 function D2PlayerSearch() {
     const dispatch = useDispatch();
 
-    let players;
-    let playerDetailed;
+    const [playerList, setPlayerList] = useState([]);
+    const [playerAdvList, setPlayerAdvList] = useState([]);
 
     const [username, setUsername] = useState('');
     const [nameCode, setNameCode] = useState('');
@@ -20,7 +20,7 @@ function D2PlayerSearch() {
 
     useEffect(() => {
         //this is here to ensure the search result elements do hide when needed
-    }, [showSearch, showAdvSearch, players, playerDetailed, dispatch]);
+    }, [showSearch, showAdvSearch, dispatch]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -29,12 +29,11 @@ function D2PlayerSearch() {
 
         if (!username) return;
 
-        players = await dispatch(getPlayersByName(username));
+        const players = await dispatch(getPlayersByName(username));
+        setPlayerList(players?.Response?.searchResults);
 
         setShowAdvSearch(false);
         setShowSearch(true);
-
-        console.log('players', players);
 
     }
 
@@ -43,16 +42,16 @@ function D2PlayerSearch() {
 
         if (!username || !nameCode) return;
 
-        playerDetailed = await dispatch(getPlayerByDisplayParams(username, nameCode));
+        const playerAdv = await dispatch(getPlayerByDisplayParams(username, nameCode));
+        setPlayerAdvList(playerAdv?.Response);
         
         setShowSearch(false);
         setShowAdvSearch(true);
 
-        //console.log('player', playerDetailed);
-
     }
 
-    console.log('players response', players);
+    console.log('players response', playerList);
+    console.log('player advanced', playerAdvList);
 
     return (
         <main>
@@ -99,13 +98,13 @@ function D2PlayerSearch() {
 
                         <div>
 
-                            {/* {players?.Response?.searchResults.map(({bungieGlobalDisplayName}) => (
+                            {playerList.map(({bungieGlobalDisplayName}) => (
                                 <div>
 
                                     <div>{bungieGlobalDisplayName}</div>
 
                                 </div>
-                            ))} */}
+                            ))}
 
                         </div>
 
