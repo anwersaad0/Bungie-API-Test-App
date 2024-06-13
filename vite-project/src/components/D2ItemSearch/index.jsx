@@ -8,7 +8,7 @@ function D2ItemSearch() {
 
     const [itemList, setItemList] = useState([]);
 
-    const [searchParam, setsearchParam] = useState('');
+    const [searchParam, setSearchParam] = useState('');
 
     const [showList, setShowList] = useState(false);
 
@@ -24,28 +24,47 @@ function D2ItemSearch() {
         if (!searchParam) return;
 
         const items = await dispatch(searchD2Items(searchParam));
-        console.log('items', items);
+        //console.log('items', items);
 
-        //setItemList();
+        setItemList(items?.Response?.results?.results);
+        console.log('items', itemList);
 
-        setShowList(true);
+        //setShowList(true);
 
     }
 
     return (
         <main>
 
-            <div className="search-item-container">
+            <div className="search-item-container-root">
 
-                <div>
+                <div className="search-item-ui">
 
+                    <div>
 
+                        <input
+                            placeholder="Enter an item name"
+                            onChange={e => setSearchParam(e.target.value)}
+                            className="item-search"
+                        ></input>
+
+                        <button type="submit" onClick={e => handleSearch(e)} >Search</button>
+
+                    </div>
 
                 </div>
 
-                <div>
+                <div className="item-search-container">
+
+                    <div className={searchClass}>
+
+                        <div>
 
 
+
+                        </div>
+
+                    </div>
 
                 </div>
 
