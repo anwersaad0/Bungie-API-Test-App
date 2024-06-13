@@ -15,6 +15,10 @@ function Navigation({ isLoaded }){
 			<li>
 				<NavLink to="/search/player">Search Player</NavLink>
 			</li>
+
+			<li>
+				<NavLink to="/search/item">Search Item</NavLink>
+			</li>
 		</ul>
 	);
 }

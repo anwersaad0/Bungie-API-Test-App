@@ -31,7 +31,7 @@ function D2Profile() {
 
     useEffect(() => {
         dispatch(getD2Profile(memId));
-    }, [dispatch]);
+    }, [memId, dispatch]);
 
     const characterList = (profile ? Object.values(profile?.Response?.characters?.data) : []);
     const characterGear = (profile ? Object.values(profile?.Response?.characterEquipment?.data) : []);
