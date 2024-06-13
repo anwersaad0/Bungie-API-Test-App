@@ -29,8 +29,6 @@ function D2PlayerSearch() {
     const handleSearch = async (e) => {
         e.preventDefault();
 
-        //console.log('username', username);
-
         if (!username) return;
 
         const players = await dispatch(getPlayersByName(username));

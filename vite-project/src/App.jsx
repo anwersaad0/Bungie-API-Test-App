@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
 import D2Profile from './components/D2Profile';
 import D2PlayerSearch from './components/D2PlayerSearch';
+import D2ItemSearch from './components/D2ItemSearch';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Navigation />
 
       <Routes>
+        <Route path='/search/item' element={<D2ItemSearch />} />
         <Route path="/search/player" element={<D2PlayerSearch />} />
         <Route path='/profile/:memId' element={<D2Profile />} />
         <Route path="/" element={<HomePage/>} />
