@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getPlayersByName, getPlayerByDisplayParams } from "../../store/bungie_player_routes";
+
+import './D2PlayerSearch.css';
+import altIcon from './altIcon/destinyIcon.png';
 
 function D2PlayerSearch() {
     const dispatch = useDispatch();
@@ -50,8 +54,8 @@ function D2PlayerSearch() {
 
     }
 
-    console.log('players response', playerList);
-    console.log('player advanced', playerAdvList);
+    //console.log('players response', playerList);
+    //console.log('player advanced', playerAdvList);
 
     return (
         <main>
@@ -63,7 +67,7 @@ function D2PlayerSearch() {
                     <h3>To use Search Advanced, type in both the username and the display code</h3>
                 </div>
 
-                <div>
+                <div className="search-input-container">
 
                     <input
                         placeholder="Enter Player Name"
@@ -73,6 +77,7 @@ function D2PlayerSearch() {
 
                     <input
                         type="number"
+                        placeholder="Enter Player Number"
                         onChange={e => setNameCode(e.target.value)}
                         className="number-search"
                     ></input>
@@ -94,14 +99,21 @@ function D2PlayerSearch() {
                 <div className="search-container">
 
                     <div className={searchClass}>
-                        Testing normal search
 
                         <div>
 
-                            {playerList.map(({bungieGlobalDisplayName}) => (
-                                <div>
+                            {playerList.map(({bungieGlobalDisplayName, bungieGlobalDisplayNameCode, destinyMemberships}) => (
+                                <div className="player-container">
 
-                                    <div>{bungieGlobalDisplayName}</div>
+                                    <div>
+                                        <img className="search-profile-image" src={((destinyMemberships[0]?.iconPath !== undefined) ? `https://www.bungie.net${destinyMemberships[0]?.iconPath}` : altIcon)} ></img>
+                                    </div>
+
+                                    <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
+
+                                    <div className="player-nav">
+                                        <NavLink to={`/profile/${destinyMemberships[0]?.membershipId}`}>View Player</NavLink>
+                                    </div>
 
                                 </div>
                             ))}
@@ -115,11 +127,28 @@ function D2PlayerSearch() {
                 <div className="adv-search-container">
 
                     <div className={advSearchClass}>
-                        Testing advanced search
 
                         <div>
 
+                            {playerAdvList.map(({iconPath, membershipId, bungieGlobalDisplayName, bungieGlobalDisplayNameCode}) => (
+                                
+                                <div className="player-container">
 
+                                    <div>
+
+                                        <img className="search-profile-image" src={((iconPath !== undefined) ? `https://www.bungie.net${iconPath}` : altIcon)} ></img>
+
+                                    </div>
+
+                                    <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
+
+                                    <div className="player-nav">
+                                        <NavLink to={`/profile/${membershipId}`}>View Player</NavLink>
+                                    </div>
+
+                                </div>
+
+                            ))}
 
                         </div>
 

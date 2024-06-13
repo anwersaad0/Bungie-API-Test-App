@@ -17,7 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/search/player" element={<D2PlayerSearch />} />
-        <Route path='/profile' element={<D2Profile />} />
+        <Route path='/profile/:memId' element={<D2Profile />} />
         <Route path="/" element={<HomePage/>} />
       </Routes>
     </>

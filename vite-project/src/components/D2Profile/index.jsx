@@ -24,13 +24,13 @@ loadDefs();
 
 function D2Profile() {
     const dispatch = useDispatch();
-    //const {memId} = useParams();
+    const {memId} = useParams();
     const fallback = <b>Loading equipped gear...</b>;
 
     const profile = useSelector((state) => state.bungieData["[object Object]"]);
 
     useEffect(() => {
-        dispatch(getD2Profile());
+        dispatch(getD2Profile(memId));
     }, [dispatch]);
 
     const characterList = (profile ? Object.values(profile?.Response?.characters?.data) : []);

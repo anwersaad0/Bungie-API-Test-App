@@ -1,0 +1,36 @@
+.containers-search-ui, .containers-search {
+    text-align: center;
+}
+
+.search-input-container {
+    margin: 4px;
+}
+
+.containers-search {
+    margin-top: 24px;
+}
+
+.player-container {
+    display: flex;
+    background-color: rgb(175, 175, 175);
+    padding: 10px;
+    border-radius: 18px;
+    
+    max-width: 500px;
+    margin: 8px auto;
+}
+
+.search-profile-image {
+    width: 56px;
+    height: 56px;
+}
+
+.player-name {
+    width: 280px;
+}
+
+.player-name, .player-nav{
+    margin-top: 16px;
+    margin-left: 12px;
+    font-size: 22px;
+}

@@ -13,7 +13,7 @@ function Navigation({ isLoaded }){
 			</li>
 
 			<li>
-				<NavLink to="/profile">Inspect Player</NavLink>
+				<NavLink to="/search/player">Search Player</NavLink>
 			</li>
 		</ul>
 	);
