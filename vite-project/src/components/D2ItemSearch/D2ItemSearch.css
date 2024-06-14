@@ -1,0 +1,19 @@
+.search-item-container-root {
+    text-align: center;
+}
+
+.item-search-container {
+    margin-top: 24px;
+}
+
+.item-search-result-container {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.item-container {
+    margin: 4px;
+}

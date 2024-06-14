@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchD2Items } from "../../store/bungie_item_routes";
+
+import './D2ItemSearch.css';
 
 function D2ItemSearch() {
     const dispatch = useDispatch();
@@ -24,19 +26,23 @@ function D2ItemSearch() {
         if (!searchParam) return;
 
         const items = await dispatch(searchD2Items(searchParam));
-        //console.log('items', items);
 
         setItemList(items?.Response?.results?.results);
-        console.log('items', itemList);
 
-        //setShowList(true);
+        setShowList(true);
 
     }
+
+    //console.log('items', itemList);
 
     return (
         <main>
 
             <div className="search-item-container-root">
+
+                <div>
+                    <h1>Search Item</h1>
+                </div>
 
                 <div className="search-item-ui">
 
@@ -58,9 +64,17 @@ function D2ItemSearch() {
 
                     <div className={searchClass}>
 
-                        <div>
+                        <div className="item-search-result-container">
 
+                            {itemList.map(({hash, displayProperties}) => (
 
+                                <div className="item-container">
+
+                                    <img src={`https://www.bungie.net${displayProperties?.icon}`} ></img>
+
+                                </div>
+
+                            ))}
 
                         </div>
 

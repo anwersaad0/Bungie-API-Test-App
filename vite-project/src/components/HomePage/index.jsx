@@ -23,11 +23,11 @@ function HomePage() {
 
         <>
 
-            <h1>well?</h1>
+            <h1>well? I think it works</h1>
 
             <DefinitionsProvider fallback={fallback}>
 
-                <ExampleItem itemHash={2575506895} />
+                
 
             </DefinitionsProvider>
 
