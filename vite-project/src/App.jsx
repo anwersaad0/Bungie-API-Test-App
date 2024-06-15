@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import D2Profile from './components/D2Profile';
 import D2PlayerSearch from './components/D2PlayerSearch';
 import D2ItemSearch from './components/D2ItemSearch';
+import D2Item from './components/D2Item';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
       <Routes>
         <Route path='/search/item' element={<D2ItemSearch />} />
+        <Route path='/item/:itemHash' element={<D2Item />} />
         <Route path="/search/player" element={<D2PlayerSearch />} />
         <Route path='/profile/:memId' element={<D2Profile />} />
         <Route path="/" element={<HomePage/>} />

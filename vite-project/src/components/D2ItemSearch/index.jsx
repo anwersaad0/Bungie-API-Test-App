@@ -70,7 +70,11 @@ function D2ItemSearch() {
 
                                 <div className="item-container">
 
-                                    <img src={`https://www.bungie.net${displayProperties?.icon}`} ></img>
+                                    <NavLink to={`/item/${hash}`}>
+                                    
+                                        <img src={`https://www.bungie.net${displayProperties?.icon}`} ></img>
+                                    
+                                    </NavLink>
 
                                 </div>
 
