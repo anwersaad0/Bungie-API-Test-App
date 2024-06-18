@@ -29,6 +29,8 @@ export const getD2Item = (itemHash) => async (dispatch) => {
 }
 
 export const searchD2Items = (searchTerm) => async (dispatch) => {
+    //console.log('key', apiKey);
+
     const res = await fetch(`https://www.bungie.net/Platform/Destiny2/Armory/Search/DestinyInventoryItemDefinition/${searchTerm}`, {
         method: "GET",
         headers: {
