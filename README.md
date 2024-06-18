@@ -8,10 +8,13 @@ LFPeek is a website that makes use of Bungie's API for the game Destiny 2 to all
 ## Features:
 - Player Search
 - Profile Inspection
+- Item Search
 
 ### WIP Features:
-- Item Search
 - Detailed Item Inspection
+
+### Planned Features for the Future:
+- OAuth integration
 
 ## Technologies Used:
 - JS
