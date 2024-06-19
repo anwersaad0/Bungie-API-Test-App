@@ -1,3 +1,12 @@
 .inspect-item-header {
     display: flex;
 }
+
+.perk-pool-columns {
+    display: flex;
+}
+
+.perk-icon {
+    width: 56px;
+    height: 56px;
+}

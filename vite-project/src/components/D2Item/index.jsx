@@ -25,6 +25,8 @@ function D2Item() {
     const dispatch = useDispatch();
     const { itemHash } = useParams();
 
+    const fallback = <b>Loading perks...</b>;
+
     useEffect(() => {
         dispatch(getD2Item(itemHash));
     }, [itemHash, dispatch]);
@@ -41,6 +43,8 @@ function D2Item() {
                 <div className="inspect-item-header">
 
                     <div>
+
+                        
 
                         <img
                             src={`https://www.bungie.net${item?.Response?.displayProperties?.icon}`}
@@ -63,11 +67,29 @@ function D2Item() {
 
                 </div>
 
-                <div>
-                    
+                <div className="inspect-item-body">
+
+                    <div className="perk-pool-container">
+
+                        <DefinitionsProvider fallback={fallback}>
+
+                            <div className="perk-pool-columns">
+
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[1]?.randomizedPlugSetHash} />
+
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[2]?.randomizedPlugSetHash} />
+
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[3]?.randomizedPlugSetHash} />
+
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[4]?.randomizedPlugSetHash} />
+
+                            </div>
+
+                        </DefinitionsProvider>
+
+                    </div>
+
                 </div>
-
-
 
             </div>
 
@@ -75,13 +97,13 @@ function D2Item() {
     )
 }
 
-function ItemPerks({plugSetHash}) {
+function ItemPerks({ plugSetHash }) {
     const plugSetDefs = getPlugSetDef(plugSetHash);
 
     return (
         <div>
 
-            {plugSetDefs?.reusablePlugItems.map(({plugItemHash}) => (
+            {plugSetDefs?.reusablePlugItems.map(({ plugItemHash }) => (
                 <div>
 
                     <DefinePerk perkHash={plugItemHash} />
@@ -93,13 +115,15 @@ function ItemPerks({plugSetHash}) {
     )
 }
 
-function DefinePerk({perkHash}) {
+function DefinePerk({ perkHash }) {
     const perk = getInventoryItemLiteDef(perkHash);
     const perkIcon = perk?.displayProperties.icon;
 
+    if (perk?.itemTypeDisplayName.includes("Enhanced")) return;
+
     return (
         <div className="perk-icon-container">
-            <img className="perk-icon" src={`https://www.bungie.net${icon}`}></img>
+            <img className="perk-icon" src={`https://www.bungie.net${perkIcon}`}></img>
         </div>
     )
 }
