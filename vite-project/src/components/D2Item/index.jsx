@@ -6,6 +6,20 @@ import { useParams } from "react-router-dom";
 
 import './D2Item.css';
 
+import {
+    verbose,
+    includeTables,
+    DefinitionsProvider,
+    setApiKey,
+    loadDefs,
+    getPlugSetDef,
+    getInventoryItemLiteDef,
+} from '@d2api/manifest-react';
+
+verbose();
+includeTables(["InventoryItemLite", "PlugSet"]);
+setApiKey(import.meta.env.VITE_API_KEY);
+loadDefs();
 
 function D2Item() {
     const dispatch = useDispatch();
@@ -58,6 +72,35 @@ function D2Item() {
             </div>
 
         </main>
+    )
+}
+
+function ItemPerks({plugSetHash}) {
+    const plugSetDefs = getPlugSetDef(plugSetHash);
+
+    return (
+        <div>
+
+            {plugSetDefs?.reusablePlugItems.map(({plugItemHash}) => (
+                <div>
+
+                    <DefinePerk perkHash={plugItemHash} />
+
+                </div>
+            ))}
+
+        </div>
+    )
+}
+
+function DefinePerk({perkHash}) {
+    const perk = getInventoryItemLiteDef(perkHash);
+    const perkIcon = perk?.displayProperties.icon;
+
+    return (
+        <div className="perk-icon-container">
+            <img className="perk-icon" src={`https://www.bungie.net${icon}`}></img>
+        </div>
     )
 }
 
