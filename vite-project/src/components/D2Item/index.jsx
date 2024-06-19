@@ -44,7 +44,7 @@ function D2Item() {
 
                     <div>
 
-                        
+
 
                         <img
                             src={`https://www.bungie.net${item?.Response?.displayProperties?.icon}`}
@@ -75,6 +75,8 @@ function D2Item() {
 
                             <div className="perk-pool-columns">
 
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[0]?.reusablePlugSetHash} />
+
                                 <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[1]?.randomizedPlugSetHash} />
 
                                 <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[2]?.randomizedPlugSetHash} />
@@ -82,6 +84,8 @@ function D2Item() {
                                 <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[3]?.randomizedPlugSetHash} />
 
                                 <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[4]?.randomizedPlugSetHash} />
+
+                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[8]?.reusablePlugSetHash} />
 
                             </div>
 

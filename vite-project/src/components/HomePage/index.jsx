@@ -36,13 +36,13 @@ function HomePage() {
 
                 <div>
 
-                    <DefinitionsProvider fallback={fallback}>
+                    {/* <DefinitionsProvider fallback={fallback}>
 
                         <ExamplePlugSet plugSetHash={123373618} />
 
                         <ExampleItem itemHash={2946784966} />
 
-                    </DefinitionsProvider>
+                    </DefinitionsProvider> */}
 
                 </div>
 
@@ -53,27 +53,27 @@ function HomePage() {
     )
 }
 
-function ExamplePlugSet({ plugSetHash }) {
-    const examplePlugSet = getPlugSetDef(plugSetHash);
-    console.log("let's test this", examplePlugSet);
+// function ExamplePlugSet({ plugSetHash }) {
+//     const examplePlugSet = getPlugSetDef(plugSetHash);
+//     console.log("let's test this", examplePlugSet);
 
-    return (
-        <>
-            <h3>eh</h3>
-        </>
-    )
-}
+//     return (
+//         <>
+//             <h3>eh</h3>
+//         </>
+//     )
+// }
 
-function ExampleItem({ itemHash }) {
-    const exampleWep = getInventoryItemLiteDef(itemHash);
-    const icon = exampleWep?.displayProperties.icon;
+// function ExampleItem({ itemHash }) {
+//     const exampleWep = getInventoryItemLiteDef(itemHash);
+//     const icon = exampleWep?.displayProperties.icon;
 
-    return (
-        <div className="item-icon-container">
-            <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
-        </div>
-    )
-}
+//     return (
+//         <div className="item-icon-container">
+//             <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
+//         </div>
+//     )
+// }
 
 
 export default HomePage;
