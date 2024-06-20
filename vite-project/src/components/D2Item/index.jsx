@@ -14,10 +14,12 @@ import {
     loadDefs,
     getPlugSetDef,
     getInventoryItemLiteDef,
+    getStatDef,
+    getStatGroupDef
 } from '@d2api/manifest-react';
 
 verbose();
-includeTables(["InventoryItemLite", "PlugSet"]);
+includeTables(["InventoryItemLite", "PlugSet", "Stat", "StatGroup"]);
 setApiKey(import.meta.env.VITE_API_KEY);
 loadDefs();
 
@@ -69,23 +71,43 @@ function D2Item() {
 
                 <div className="inspect-item-body">
 
-                    <div className="perk-pool-container">
+                    <div className="item-details-container">
 
                         <DefinitionsProvider fallback={fallback}>
 
-                            <div className="perk-pool-columns">
+                            <div>Possible Perks</div>
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[0]?.reusablePlugSetHash} />
+                            <div className="stats-and-perk-pool-container">
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[1]?.randomizedPlugSetHash} />
+                                <div className="stats-container">
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[2]?.randomizedPlugSetHash} />
+                                    <div>Base Stats: </div>
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[3]?.randomizedPlugSetHash} />
+                                    <div className="stat-container">
+                                        <WeaponStats statHash={1842278586} /> : {item?.Response?.stats?.stats[1842278586]?.value}
+                                    </div>
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[4]?.randomizedPlugSetHash} />
+                                    <div>
+                                        
+                                    </div>
 
-                                <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[8]?.reusablePlugSetHash} />
+                                </div>
+
+                                <div className="perk-pool-columns-container">
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[0]?.reusablePlugSetHash} />
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[1]?.randomizedPlugSetHash} />
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[2]?.randomizedPlugSetHash} />
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[3]?.randomizedPlugSetHash} />
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[4]?.randomizedPlugSetHash} />
+
+                                    <ItemPerks plugSetHash={item?.Response?.sockets?.socketEntries[8]?.reusablePlugSetHash} />
+
+                                </div>
 
                             </div>
 
@@ -108,7 +130,7 @@ function ItemPerks({ plugSetHash }) {
         <div>
 
             {plugSetDefs?.reusablePlugItems.map(({ plugItemHash }) => (
-                <div>
+                <div className="perk-pool-column">
 
                     <DefinePerk perkHash={plugItemHash} />
 
@@ -131,5 +153,29 @@ function DefinePerk({ perkHash }) {
         </div>
     )
 }
+
+function WeaponStats({ statHash }) {
+    const stat = getStatDef(statHash);
+    //console.log('stat', stat);
+
+    return (
+        <div>
+
+            {stat?.displayProperties?.name}
+
+        </div>
+    )
+}
+
+// function WeaponStatGroup({ statGroupHash }) {
+//     const statGroup = getStatGroupDef(statGroupHash);
+//     console.log('statgroup', statGroup);
+
+//     return (
+//         <div>
+//             hi
+//         </div>
+//     )
+// }
 
 export default D2Item;

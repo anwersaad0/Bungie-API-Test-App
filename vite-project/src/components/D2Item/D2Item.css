@@ -2,11 +2,26 @@
     display: flex;
 }
 
-.perk-pool-columns {
+.stats-and-perk-pool-container {
     display: flex;
 }
 
+.stat-container {
+    display: flex;
+}
+
+.perk-pool-columns-container {
+    display: flex;
+    border-left: 4px solid black;
+    padding-left: 12px;
+    margin-left: 12px;
+}
+
+.perk-pool-column {
+    margin: 4px;
+}
+
 .perk-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
 }
