@@ -1,9 +1,45 @@
 .inspect-item-header {
     display: flex;
+    margin: 8px;
+}
+
+.inspect-item-titles {
+    margin-top: -12px;
+    margin-left: 12px;
+}
+
+.inspect-item-body {
+    margin: 8px;
+}
+
+.item-details-container {
+    background: rgb(17, 17, 17);
+    padding: 0px 0px 12px 24px;
+    border-radius: 16px;
+    max-width: 600px;
+}
+
+.intrinsic-archetype-container {
+    color: white;
+}
+
+.intrinsic-archetype-icon-title {
+    display: flex;
+}
+
+.inspect-item-body-title {
+    color: white;
+    text-decoration: underline;
 }
 
 .stats-and-perk-pool-container {
     display: flex;
+}
+
+.stats-container {
+    color: white;
+    padding: 8px;
+    border-radius: 12px;
 }
 
 .stat-container {
@@ -12,8 +48,9 @@
 
 .perk-pool-columns-container {
     display: flex;
-    border-left: 4px solid black;
-    padding-left: 12px;
+    border-radius: 12px;
+    
+    /* padding: 8px; */
     margin-left: 12px;
 }
 
