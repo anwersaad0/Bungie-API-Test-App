@@ -1,0 +1,6 @@
+//test
+export const ARMOR_INTRINSIC_SOCKETS = [
+    635551670,
+    965959289,
+    3497077129,
+]

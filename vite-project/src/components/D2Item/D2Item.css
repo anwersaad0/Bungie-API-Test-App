@@ -1,6 +1,18 @@
+.inspect-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .inspect-item-header {
     display: flex;
     margin: 8px;
+    max-width: 600px;
+    color: white;
+    background: rgb(17, 17, 17);
+    border-radius: 16px;
+    padding:12px;
 }
 
 .inspect-item-titles {
@@ -12,9 +24,9 @@
     margin: 8px;
 }
 
-.item-details-container {
+.intrinsic-archetype-root, .stats-and-perk-pool-root {
     background: rgb(17, 17, 17);
-    padding: 0px 0px 12px 24px;
+    padding: 0px 24px 12px;
     border-radius: 16px;
     max-width: 600px;
 }

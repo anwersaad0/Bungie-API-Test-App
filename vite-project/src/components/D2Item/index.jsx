@@ -37,9 +37,9 @@ function D2Item() {
     console.log('item', item);
 
     const checkGear = () => {
-        if (item?.Response?.traitIds && (item?.Response?.traitIds[0]?.includes('weapon') || item?.Response?.traitIds[0]?.includes('armor'))) {
+        if (item?.Response?.traitIds && (item?.Response?.traitIds?.some(str => str.includes('item.weapon.')) || item?.Response?.traitIds?.some(str => str.includes('item.armor.')))) {
             return (
-                <div>
+                <div className="intrinsic-archetype-root">
 
                     <h1 className="inspect-item-body-title">Archtype/Intrinsic</h1>
 
@@ -53,9 +53,9 @@ function D2Item() {
     }
 
     const checkItem = () => {
-        if (item?.Response?.traitIds && item?.Response?.traitIds[0]?.includes('weapon')) {
+        if (item?.Response?.traitIds && item?.Response?.traitIds?.some(str => str.includes('item.weapon.'))) {
             return (
-                <div>
+                <div className="stats-and-perk-pool-root">
 
 
                     <h1 className="inspect-item-body-title">Stats & Perks</h1>
@@ -158,7 +158,7 @@ function D2Item() {
     return (
         <main>
 
-            <div>
+            <div className="inspect-item-container">
 
                 <div className="inspect-item-header">
 
@@ -175,11 +175,11 @@ function D2Item() {
 
                     <div className="inspect-item-titles">
 
-                        <h1>
+                        <h1 className="item-title">
                             {item?.Response?.displayProperties?.name}
                         </h1>
 
-                        <h2>
+                        <h2 className="item-subtitle">
                             {item?.Response?.itemTypeAndTierDisplayName}
                         </h2>
 
