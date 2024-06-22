@@ -5,8 +5,7 @@
     align-items: center;
 }
 
-.inspect-item-header {
-    display: flex;
+.inspect-item-header-root {
     margin: 8px;
     max-width: 600px;
     color: white;
@@ -15,9 +14,23 @@
     padding:12px;
 }
 
+.inspect-item-header {
+    display: flex;
+    /* margin: 8px;
+    max-width: 600px;
+    color: white;
+    background: rgb(17, 17, 17);
+    border-radius: 16px;
+    padding:12px; */
+}
+
 .inspect-item-titles {
     margin-top: -12px;
     margin-left: 12px;
+}
+
+.item-subtitle {
+    margin-top: -10px;
 }
 
 .inspect-item-body {
@@ -37,6 +50,7 @@
 
 .intrinsic-archetype-icon-title {
     display: flex;
+    margin-bottom: 16px;
 }
 
 .inspect-item-body-title {
@@ -73,4 +87,11 @@
 .perk-icon {
     width: 48px;
     height: 48px;
+}
+
+.perk-name {
+    margin-left: 12px;
+    margin-top: 10px;
+
+    font-size: 24px;
 }
