@@ -10,7 +10,7 @@ const getProfile = (profile) => ({
 export const getD2Profile = (memId) => async (dispatch) => {
     //console.log('api key there?', apiKey);
 
-    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/${memId}/?components=100,200,205`, {
+    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/3/Profile/${memId}/?components=100,200,205,302`, {
         method: "GET",
         headers: {
             "X-API-Key": apiKey

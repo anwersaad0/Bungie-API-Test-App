@@ -14,11 +14,12 @@ import {
     loadDefs,
     getInventoryItemDef,
     getInventoryItemLiteDef,
+    getSandboxPerkDef,
     includeTables,
 } from '@d2api/manifest-react';
 
 verbose();
-includeTables(["InventoryItemLite"]);
+includeTables(["InventoryItemLite", "SandboxPerk"]);
 setApiKey(import.meta.env.VITE_API_KEY);
 loadDefs();
 
@@ -78,9 +79,9 @@ function D2Profile() {
                                                         </div>
 
                                                         <div className="equipped-weapon-grid">
-                                                            <ExampleItem itemHash={equippedGear?.items[0]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[1]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[2]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[0]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[1]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[2]?.itemHash} />
                                                         </div>
                                                     </div>
 
@@ -91,11 +92,11 @@ function D2Profile() {
                                                         </div>
 
                                                         <div className="equipped-armor-grid">
-                                                            <ExampleItem itemHash={equippedGear?.items[3]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[4]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[5]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[6]?.itemHash} />
-                                                            <ExampleItem itemHash={equippedGear?.items[7]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[3]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[4]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[5]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[6]?.itemHash} />
+                                                            <EquippedItem itemHash={equippedGear?.items[7]?.itemHash} />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,33 +129,8 @@ function D2Profile() {
     )
 }
 
-//This doesn't work rn, issues with iteration
-function CharacterInv({ itemHashes }) {
-    const items = [];
-    const icons = [];
 
-    for (let itemHash of itemHashes) {
-        const item = getInventoryItemLiteDef(itemHash);
-        items.push(item);
-        icons.push(item?.displayProperties.icon);
-    }
-
-    //const item = getInventoryItemDef(itemHash);
-    //const icon = item?.displayProperties.icon;
-
-    return (
-        <>
-            {items.map(([displayProperties]) => (
-                <div>
-                    <img src={`https://www.bungie.net${displayProperties?.icon}`}></img>
-                </div>
-            ))}
-        </>
-    )
-}
-
-//This does work rn tho lmao
-function ExampleItem({ itemHash }) {
+function EquippedItem({ itemHash }) {
     const exampleWep = getInventoryItemLiteDef(itemHash);
     const icon = exampleWep?.displayProperties.icon;
 
