@@ -1,10 +1,56 @@
 .container-profile-page {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.profile-username-container {
+    color: white;
+    background: rgb(17, 17, 17);
+    margin: 8px;
+    padding: 16px;
+
+    font-size: 32px;
+    font-weight: bolder;
+
+    border-radius: 16px;
+}
+
+.profile-character-container {
+    background: rgb(17, 17, 17);
+    color: white;
+    padding: 24px;
+
+    border-radius: 16px;
+}
+
+.character-container {
+    margin-bottom: 16px;
+}
+
+.character-header {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.character-description {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 251, 37);
+}
+
 .equipped-inner-container {
     display: flex;
+    justify-content: space-between;
+}
+
+.equipped-gear-label {
+    font-size: 18px;
+    text-decoration: underline;
 }
 
 .equipped-weapon-grid, .equipped-armor-grid {

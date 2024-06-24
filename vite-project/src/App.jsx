@@ -24,6 +24,10 @@ function App() {
         <Route path='/profile/:memId' element={<D2Profile />} />
         <Route path="/" element={<HomePage/>} />
       </Routes>
+
+      <footer>
+        
+      </footer>
     </>
   )
 }

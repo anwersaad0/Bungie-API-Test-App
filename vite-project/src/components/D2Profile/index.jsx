@@ -25,7 +25,7 @@ loadDefs();
 
 function D2Profile() {
     const dispatch = useDispatch();
-    const {memId} = useParams();
+    const { memId } = useParams();
     const fallback = <b>Loading equipped gear...</b>;
 
     const profile = useSelector((state) => state.bungieData["[object Object]"]);
@@ -42,7 +42,7 @@ function D2Profile() {
     console.log('profile', characterZip);
 
     return (
-        <main>
+        <main className="progile-page-root">
 
             <div className="container-profile-page">
 
@@ -51,7 +51,7 @@ function D2Profile() {
                     <div>
 
                         <div className="profile-username-container">
-                            Username: {profile?.Response?.profile?.data?.userInfo?.displayName}#{profile?.Response?.profile?.data?.userInfo?.bungieGlobalDisplayNameCode}
+                            {profile?.Response?.profile?.data?.userInfo?.displayName}#{profile?.Response?.profile?.data?.userInfo?.bungieGlobalDisplayNameCode}
                         </div>
 
                         <div className="profile-character-container">
@@ -59,12 +59,16 @@ function D2Profile() {
                             <div>
 
                                 {characterZip.map(([character, equippedGear]) => (
-                                    <div>
+                                    <div className="character-container">
 
-                                        <img src={`https://www.bungie.net${character?.emblemBackgroundPath}`}></img>
+                                        <div className="character-header">
 
-                                        <div>
-                                            {RACE_LIST[character?.raceType]} {CLASS_LIST[character?.classType]} {character?.light}
+                                            <img className="character-emblem" src={`https://www.bungie.net${character?.emblemBackgroundPath}`}></img>
+
+                                            <div className="character-description">
+                                                {RACE_LIST[character?.raceType]} {CLASS_LIST[character?.classType]} {character?.light}
+                                            </div>
+
                                         </div>
 
                                         <div className="equipped-container">
@@ -74,7 +78,7 @@ function D2Profile() {
                                                 <div className="equipped-inner-container">
                                                     <div className="equipped-weapons-container">
 
-                                                        <div className="equipped-weapon-label">
+                                                        <div className="equipped-gear-label">
                                                             Equipped Weapons
                                                         </div>
 
@@ -87,7 +91,7 @@ function D2Profile() {
 
                                                     <div className="equipped-armor-container">
 
-                                                        <div className="equipped-armor-label">
+                                                        <div className="equipped-gear-label">
                                                             Equipped Armor
                                                         </div>
 
@@ -129,7 +133,6 @@ function D2Profile() {
     )
 }
 
-
 function EquippedItem({ itemHash }) {
     const exampleWep = getInventoryItemLiteDef(itemHash);
     const icon = exampleWep?.displayProperties.icon;
@@ -139,6 +142,10 @@ function EquippedItem({ itemHash }) {
             <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
         </div>
     )
+}
+
+function ActivePerk({perkHash}) {
+    const perk = getSandboxPerkDef(perkHash);
 }
 
 export default D2Profile;
