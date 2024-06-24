@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-//import './App.css'
+import GitHubIcon from "./assets/github.png";
+import LinkedInIcon from "./assets/linkedin.png";
+import './App.css'
 
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
@@ -22,11 +22,23 @@ function App() {
         <Route path='/item/:itemHash' element={<D2Item />} />
         <Route path="/search/player" element={<D2PlayerSearch />} />
         <Route path='/profile/:memId' element={<D2Profile />} />
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
 
-      <footer>
-        
+      <footer className='site-footer'>
+        <div className='footer-container'>
+          <a>Made by Saad Anwer | </a>
+
+          <a className="contributor" href="https://github.com/anwersaad0">
+            <img className='github-icon' src={GitHubIcon} alt='GitHub'></img>
+          </a>
+
+          <a> | </a>
+
+          <a className="contributor" href="https://www.linkedin.com/in/anwersaad0/">
+            <img className='linkedin-icon' src={LinkedInIcon} alt='LinkedIn'></img>
+          </a>
+        </div>
       </footer>
     </>
   )
