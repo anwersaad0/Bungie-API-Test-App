@@ -5,6 +5,7 @@
   padding: 8px;
   color: white;
   background: rgb(17,17,17);
+  border-top: 4px solid rgb(37, 186, 255);
 }
 
 .footer-container {

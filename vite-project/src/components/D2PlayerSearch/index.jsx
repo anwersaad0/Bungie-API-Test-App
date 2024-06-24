@@ -110,7 +110,7 @@ function D2PlayerSearch() {
                                     <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
 
                                     <div className="player-nav">
-                                        <NavLink to={`/profile/${destinyMemberships[0]?.membershipId}`}>View Player</NavLink>
+                                        <NavLink className={"player-link"} to={`/profile/${destinyMemberships[0]?.membershipId}`}>View Player</NavLink>
                                     </div>
 
                                 </div>
@@ -141,7 +141,7 @@ function D2PlayerSearch() {
                                     <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
 
                                     <div className="player-nav">
-                                        <NavLink to={`/profile/${membershipId}`}>View Player</NavLink>
+                                        <NavLink className={"player-link"} to={`/profile/${membershipId}`}>View Player</NavLink>
                                     </div>
 
                                 </div>

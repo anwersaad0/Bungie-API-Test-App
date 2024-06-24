@@ -33,18 +33,19 @@ function D2ItemSearch() {
 
     }
 
-    //console.log('items', itemList);
+    console.log('items', itemList);
 
     return (
         <main>
 
             <div className="search-item-container-root">
 
-                <div>
-                    <h1>Search Item</h1>
-                </div>
 
                 <div className="search-item-ui">
+
+                    <div>
+                        <h1>Search Item</h1>
+                    </div>
 
                     <div>
 
@@ -66,14 +67,16 @@ function D2ItemSearch() {
 
                         <div className="item-search-result-container">
 
-                            {itemList.map(({hash, displayProperties}) => (
+                            {itemList.map(({ hash, displayProperties }) => (
 
                                 <div className="item-container">
 
-                                    <NavLink to={`/item/${hash}`}>
-                                    
+                                    <NavLink className={"item-search-details"} to={`/item/${hash}`}>
+
                                         <img className="search-item-icon" src={`https://www.bungie.net${displayProperties?.icon}`} ></img>
-                                    
+
+                                        <div className="search-item-name">{displayProperties?.name}</div>
+
                                     </NavLink>
 
                                 </div>

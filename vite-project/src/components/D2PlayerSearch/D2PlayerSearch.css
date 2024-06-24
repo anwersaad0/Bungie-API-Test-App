@@ -2,6 +2,21 @@
     text-align: center;
 }
 
+.search-item-ui {
+    background: rgb(17, 17, 17);
+    color: white;
+
+    width: 450px;
+    margin: 12px auto;
+    padding: 8px;
+    padding-bottom: 16px;
+    border-radius: 16px;
+}
+
+.item-search {
+    margin-right: 8px;
+}
+
 .containers-search-ui {
     background-color: rgb(17, 17, 17);
     color: white;
@@ -49,4 +64,13 @@
     margin-top: 16px;
     margin-left: 12px;
     font-size: 22px;
+}
+
+.player-link {
+    text-decoration: none;
+    color: rgb(255, 251, 37);
+}
+
+.player-link:hover {
+    text-decoration: underline;
 }
