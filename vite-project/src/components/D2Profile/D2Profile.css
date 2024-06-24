@@ -36,11 +36,15 @@
 .character-description {
     position: absolute;
     top: 12px;
-    right: 20px;
+    left: 80px;
 
     font-size: 24px;
     font-weight: bold;
     color: rgb(255, 251, 37);
+    background: rgba(17, 17, 17, .7);
+
+    padding: 8px;
+    border-radius: 12px;
 }
 
 .equipped-inner-container {
@@ -48,8 +52,15 @@
     justify-content: space-between;
 }
 
+.equipped-armor-container {
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 4px solid white;
+}
+
 .equipped-gear-label {
     font-size: 18px;
+    font-weight: bold;
     text-decoration: underline;
 }
 
@@ -59,12 +70,20 @@
 }
 
 .item-icon-container {
-    width: 64px;
-    height: 64px;
-
     margin-top: 8px;
 }
 
 .item-icon {
-    width: 100%;
+    width: 64px;
+    height: 64px;
+}
+
+.equipped-item-perks {
+    display: flex;
+}
+
+.active-perk-icon {
+    width: 52px;
+    height: 52px;
+    margin: 4px;
 }

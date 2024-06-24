@@ -39,7 +39,7 @@ function D2Profile() {
 
     const characterZip = (profile ? characterList.map((x, i) => [x, characterGear[i]]) : []);
 
-    console.log('profile', characterZip);
+    //console.log('profile', characterZip);
 
     return (
         <main className="progile-page-root">
@@ -83,9 +83,43 @@ function D2Profile() {
                                                         </div>
 
                                                         <div className="equipped-weapon-grid">
-                                                            <EquippedItem itemHash={equippedGear?.items[0]?.itemHash} />
-                                                            <EquippedItem itemHash={equippedGear?.items[1]?.itemHash} />
-                                                            <EquippedItem itemHash={equippedGear?.items[2]?.itemHash} />
+
+                                                            <div>
+                                                                <EquippedItem itemHash={equippedGear?.items[0]?.itemHash} />
+
+                                                                <div className="equipped-item-perks">
+                                                                    {profile?.Response?.itemComponents?.perks?.data[equippedGear?.items[0]?.itemInstanceId]?.perks?.map(({ perkHash }) => (
+                                                                        <div>
+                                                                            <ActivePerk perkHash={perkHash} />
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <EquippedItem itemHash={equippedGear?.items[1]?.itemHash} />
+
+                                                                <div className="equipped-item-perks">
+                                                                    {profile?.Response?.itemComponents?.perks?.data[equippedGear?.items[1]?.itemInstanceId]?.perks?.map(({ perkHash }) => (
+                                                                        <div>
+                                                                            <ActivePerk perkHash={perkHash} />
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+
+                                                            <div>
+                                                                <EquippedItem itemHash={equippedGear?.items[2]?.itemHash} />
+
+                                                                <div className="equipped-item-perks">
+                                                                    {profile?.Response?.itemComponents?.perks?.data[equippedGear?.items[2]?.itemInstanceId]?.perks?.map(({ perkHash }) => (
+                                                                        <div>
+                                                                            <ActivePerk perkHash={perkHash} />
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
 
@@ -140,12 +174,26 @@ function EquippedItem({ itemHash }) {
     return (
         <div className="item-icon-container">
             <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
+            <div className="item-name">{exampleWep?.displayProperties?.name}</div>
         </div>
     )
 }
 
-function ActivePerk({perkHash}) {
+function ActivePerk({ perkHash }) {
     const perk = getSandboxPerkDef(perkHash);
+    const icon = perk?.displayProperties?.icon;
+    console.log(`${perk?.displayProperties?.name}`, perk);
+
+    return (
+        <div>
+            {icon ? (
+                <img className="active-perk-icon" src={`https://www.bungie.net${icon}`}></img>
+            ) : (
+                <div></div>
+            )}
+
+        </div>
+    )
 }
 
 export default D2Profile;
