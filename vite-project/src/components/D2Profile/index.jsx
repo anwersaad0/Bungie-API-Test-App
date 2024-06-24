@@ -182,7 +182,7 @@ function EquippedItem({ itemHash }) {
 function ActivePerk({ perkHash }) {
     const perk = getSandboxPerkDef(perkHash);
     const icon = perk?.displayProperties?.icon;
-    console.log(`${perk?.displayProperties?.name}`, perk);
+    //console.log(`${perk?.displayProperties?.name}`, perk);
 
     return (
         <div>
