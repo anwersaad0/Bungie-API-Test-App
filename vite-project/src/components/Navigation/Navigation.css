@@ -8,11 +8,22 @@
 
 .nav-container {
   display: flex;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(27, 27, 27);
+  color: white;
   margin: 0px;
   justify-content: space-evenly;
   list-style-type: none;
   text-decoration: none;
   
   padding: 18px 0px;
+}
+
+.nav-option {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-option:hover {
+  text-decoration: underline;
 }

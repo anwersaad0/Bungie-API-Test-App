@@ -9,15 +9,15 @@ function Navigation({ isLoaded }){
 	return (
 		<ul className='nav-container'>
 			<li>
-				<NavLink to="/">Home</NavLink>
+				<NavLink className={"nav-option"} to="/">Home</NavLink>
 			</li>
 
 			<li>
-				<NavLink to="/search/player">Search Player</NavLink>
+				<NavLink className={"nav-option"} to="/search/player">Search Player</NavLink>
 			</li>
 
 			<li>
-				<NavLink to="/search/item">Search Item</NavLink>
+				<NavLink className={"nav-option"} to="/search/item">Search Item</NavLink>
 			</li>
 		</ul>
 	);

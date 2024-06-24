@@ -29,7 +29,7 @@ function HomePage() {
                     <h2>A Destiny 2 Profile and Item Inspector</h2>
                 </div>
 
-                <div>
+                <div className="homepage-start">
                     Get started by looking up a player or an item
                 </div>
 

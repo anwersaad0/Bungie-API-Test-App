@@ -6,6 +6,11 @@
     width: 600px;
     margin: 24px auto;
     padding: 12px;
+    padding-bottom: 24px;
 
     border-radius: 16px;
+}
+
+.homepage-start {
+    margin-top: 8px;
 }

@@ -17,6 +17,10 @@
     margin: 4px;
 }
 
+.player-search, .number-search, .player-search-submit, .player-adv-search-submit {
+    margin: 4px 8px;
+}
+
 .containers-search {
     margin-top: 24px;
 }

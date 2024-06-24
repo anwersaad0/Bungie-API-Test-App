@@ -68,14 +68,14 @@ function D2PlayerSearch() {
                 <div className="search-input-container">
 
                     <input
-                        placeholder="Enter Player Name"
+                        placeholder="Enter Player Username"
                         onChange={e => setUsername(e.target.value)}
                         className="player-search"
                     ></input>
 
                     <input
                         type="number"
-                        placeholder="Enter Player Number"
+                        placeholder="Enter Code (ex. ####)"
                         onChange={e => setNameCode(e.target.value)}
                         className="number-search"
                     ></input>
@@ -84,9 +84,9 @@ function D2PlayerSearch() {
 
                 <div>
 
-                    <button type="submit" onClick={e => handleSearch(e)}>Search</button>
+                    <button className="player-search-submit" type="submit" onClick={e => handleSearch(e)}>Search</button>
 
-                    <button type="submit" onClick={e => handleDetailedSearch(e)}>Search Advanced</button>
+                    <button className="player-adv-search-submit" type="submit" onClick={e => handleDetailedSearch(e)}>Search Advanced</button>
 
                 </div>
 
