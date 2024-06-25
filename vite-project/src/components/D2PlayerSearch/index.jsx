@@ -53,7 +53,7 @@ function D2PlayerSearch() {
     }
 
     //console.log('players response', playerList);
-    console.log('player advanced', playerAdvList);
+    //console.log('player advanced', playerAdvList);
 
     return (
         <main>
