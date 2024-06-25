@@ -53,7 +53,7 @@ function D2PlayerSearch() {
     }
 
     //console.log('players response', playerList);
-    //console.log('player advanced', playerAdvList);
+    console.log('player advanced', playerAdvList);
 
     return (
         <main>
@@ -110,7 +110,7 @@ function D2PlayerSearch() {
                                     <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
 
                                     <div className="player-nav">
-                                        <NavLink className={"player-link"} to={`/profile/${destinyMemberships[0]?.membershipId}`}>View Player</NavLink>
+                                        <NavLink className={"player-link"} to={`/profile/${destinyMemberships[0]?.membershipType}/${destinyMemberships[0]?.membershipId}`}>View Player</NavLink>
                                     </div>
 
                                 </div>
@@ -128,7 +128,7 @@ function D2PlayerSearch() {
 
                         <div>
 
-                            {playerAdvList.map(({iconPath, membershipId, bungieGlobalDisplayName, bungieGlobalDisplayNameCode}) => (
+                            {playerAdvList.map(({iconPath, membershipType, membershipId, bungieGlobalDisplayName, bungieGlobalDisplayNameCode}) => (
                                 
                                 <div className="player-container">
 
@@ -141,7 +141,7 @@ function D2PlayerSearch() {
                                     <div className="player-name">{bungieGlobalDisplayName}#{String(bungieGlobalDisplayNameCode).padStart(4, '0')}</div>
 
                                     <div className="player-nav">
-                                        <NavLink className={"player-link"} to={`/profile/${membershipId}`}>View Player</NavLink>
+                                        <NavLink className={"player-link"} to={`/profile/${membershipType}/${membershipId}`}>View Player</NavLink>
                                     </div>
 
                                 </div>
