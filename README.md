@@ -4,6 +4,8 @@ $${\color{orange}by \space Saad \space Anwer}$$
 # About
 LFPeek is a website that makes use of Bungie's API for the game Destiny 2 to allow users to search and inspect items and other players.
 
+The live site can be accessed [here](https://lfpeek.vercel.app/).
+
 ### Project Demo
 
 <img src="vite-project/src/assets/readme-demo-pics/demo-view-player.png" width="500" />
