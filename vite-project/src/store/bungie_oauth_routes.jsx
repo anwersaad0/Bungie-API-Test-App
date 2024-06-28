@@ -1,11 +1,18 @@
 const apiKey = import.meta.env.VITE_API_KEY;
 const clientId = import.meta.env.VITE_CLIENT_ID;
+const clientSecret = import.meta.env.VITE_CLIENT_SECRET;
 
 const GET_AUTH = "/GET_AUTH";
+const GET_TOKEN = "/GET_TOKEN";
 
 const getAuth = (auth) => ({
     type: GET_AUTH,
     auth,
+})
+
+const getToken = (token) => ({
+    type: GET_TOKEN,
+    token,
 })
 
 export const getBungieAuth = () => async (dispatch) => {
@@ -13,5 +20,23 @@ export const getBungieAuth = () => async (dispatch) => {
 
     if (res.ok) {
         
+    }
+}
+
+export const getAuthToken = (code) => async (dispatch) => {
+    const res = await fetch("https://www.bungie.net/Platform/App/OAuth/Token/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": `Basic ${btoa({clientId: clientSecret})}`,
+        },
+        body: JSON.stringify({
+            "grant_type": "authorization_code",
+            "code": code,
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
     }
 }
