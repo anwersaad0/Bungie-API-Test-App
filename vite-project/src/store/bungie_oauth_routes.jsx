@@ -15,13 +15,13 @@ const getToken = (token) => ({
     token,
 })
 
-export const getBungieAuth = () => async (dispatch) => {
-    const res = await fetch(`https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code`);
+// export const getBungieAuth = () => async (dispatch) => {
+//     const res = await fetch(`https://www.bungie.net/en/OAuth/Authorize?client_id=${clientId}&response_type=code`);
 
-    if (res.ok) {
+//     if (res.ok) {
         
-    }
-}
+//     }
+// }
 
 export const getAuthToken = (code) => async (dispatch) => {
     const res = await fetch("https://www.bungie.net/Platform/App/OAuth/Token/", {
@@ -38,5 +38,18 @@ export const getAuthToken = (code) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
+        dispatch(getToken(data));
     }
 }
+
+const initState = {};
+
+function authReducer(state = initState, action) {
+    let newState;
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
+
+export default authReducer;

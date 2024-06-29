@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './Navigation.css';
 
@@ -19,6 +19,10 @@ function Navigation({ isLoaded }){
 			<li>
 				<NavLink className={"nav-option"} to="/search/item">Search Item</NavLink>
 			</li>
+
+			{/* <li>
+				<Link className='nav-option' to="https://www.bungie.net/en/OAuth/Authorization" >Sign In</Link>
+			</li> */}
 		</ul>
 	);
 }
