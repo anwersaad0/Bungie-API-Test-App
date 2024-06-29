@@ -6,10 +6,18 @@
   display: none;
 }
 
-.nav-container {
+.nav-root {
   display: flex;
   background-color: rgb(27, 27, 27);
   color: white;
+  margin: 0px;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
   margin: 0px;
   justify-content: space-evenly;
   list-style-type: none;
@@ -18,10 +26,22 @@
   padding: 18px 0px;
 }
 
+.nav-login {
+  display: flex;
+  margin: 0px;
+  justify-content: space-evenly;
+  list-style-type: none;
+  text-decoration: none;
+
+  padding: 18px 0px;
+}
+
 .nav-option {
   text-decoration: none;
   color: white;
   font-weight: bold;
+
+  margin: 0px 24px;
 }
 
 .nav-option:hover {

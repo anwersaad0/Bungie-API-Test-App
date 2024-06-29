@@ -3,27 +3,33 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
 	//const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul className='nav-container'>
-			<li>
-				<NavLink className={"nav-option"} to="/">Home</NavLink>
-			</li>
+		<div className='nav-root'>
 
-			<li>
-				<NavLink className={"nav-option"} to="/search/player">Search Player</NavLink>
-			</li>
+			<ul className='nav-container'>
+				<li>
+					<NavLink className={"nav-option"} to="/">Home</NavLink>
+				</li>
 
-			<li>
-				<NavLink className={"nav-option"} to="/search/item">Search Item</NavLink>
-			</li>
+				<li>
+					<NavLink className={"nav-option"} to="/search/player">Search Player</NavLink>
+				</li>
 
-			{/* <li>
-				<Link className='nav-option' to="https://www.bungie.net/en/OAuth/Authorization" >Sign In</Link>
-			</li> */}
-		</ul>
+				<li>
+					<NavLink className={"nav-option"} to="/search/item">Search Item</NavLink>
+				</li>
+			</ul>
+
+			<ul className='nav-login'>
+				<li>
+					<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
+				</li>
+			</ul>
+
+		</div>
 	);
 }
 

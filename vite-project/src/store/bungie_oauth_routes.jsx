@@ -47,6 +47,10 @@ const initState = {};
 function authReducer(state = initState, action) {
     let newState;
     switch(action.type) {
+        case GET_TOKEN:
+            newState = {...state};
+            newState[action.token] = action.token;
+            return newState;
         default:
             return state;
     }
