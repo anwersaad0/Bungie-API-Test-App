@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import GitHubIcon from "./assets/github.png";
 import LinkedInIcon from "./assets/linkedin.png";
-import './App.css'
+import './App.css';
 
 import HomePage from './components/HomePage';
 import Navigation from './components/Navigation';
@@ -11,7 +12,19 @@ import D2PlayerSearch from './components/D2PlayerSearch';
 import D2ItemSearch from './components/D2ItemSearch';
 import D2Item from './components/D2Item';
 
+const authCodeQuery = window.location.search;
+const urlParams = new URLSearchParams(authCodeQuery);
+const authCodeParam = urlParams.get('code');
+
 function App() {
+
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [authCode, setAuthCode] = useState(authCodeParam);
+
+  useEffect(() => {
+
+  }, [dispatch]);
 
   return (
     <>
