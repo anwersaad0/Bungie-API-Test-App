@@ -3,14 +3,12 @@ import { thunk } from 'redux-thunk';
 import logger from 'redux-logger';
 import bungieReducer from './bungie_profile_routes';
 import bungieItemReducer from './bungie_item_routes';
-import manifestReducer from './bungie_manifest_routes';
 import playersReducer from './bungie_player_routes';
 
 const rootReducer = combineReducers({
   //session,
   bungieData: bungieReducer,
   bungieItemData: bungieItemReducer,
-  manifest: manifestReducer,
   players: playersReducer,
 });
 
