@@ -24,7 +24,7 @@ export const getPlayersByName = (playerName) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(getPlayers(data));
+        await dispatch(getPlayers(data));
         return data;
     }
 }
@@ -43,7 +43,7 @@ export const getPlayerByDisplayParams = (playerName, playerCode) => async (dispa
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(getPlayerDetailed(data));
+        await dispatch(getPlayerDetailed(data));
         return data;
     }
 }

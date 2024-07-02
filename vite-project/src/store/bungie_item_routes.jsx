@@ -23,7 +23,7 @@ export const getD2Item = (itemHash) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(getItem(data));
+        await dispatch(getItem(data));
         return data;
     }
 }
@@ -40,7 +40,7 @@ export const searchD2Items = (searchTerm) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(searchItem(data));
+        await dispatch(searchItem(data));
         return data;
     }
 }

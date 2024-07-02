@@ -19,7 +19,7 @@ export const getD2Profile = (memType, memId) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        dispatch(getProfile(data));
+        await dispatch(getProfile(data));
         return data;
     }
 }

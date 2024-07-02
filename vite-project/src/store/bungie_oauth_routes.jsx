@@ -38,7 +38,7 @@ export const getAuthToken = (code) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(getToken(data));
+        await dispatch(getToken(data));
     }
 }
 
