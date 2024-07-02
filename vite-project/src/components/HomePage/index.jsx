@@ -9,7 +9,7 @@ const authCodeParam = urlParams.get('code');
 
 function HomePage() {
 
-    
+    console.log('code', authCodeParam);
 
     return (
 
