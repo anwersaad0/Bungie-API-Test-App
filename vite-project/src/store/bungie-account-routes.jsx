@@ -24,3 +24,17 @@ export const getD2AuthAccount = (memType, memId, token) => async (dispatch) => {
 }
 
 const initState = {};
+
+function accountReducer(state = initState, action) {
+    let newState;
+    switch(action.type) {
+        case GET_AUTHORIZED_ACCOUNT:
+            newState = {...state}
+            newState[action.account] = action.account;
+            return newState;
+        default:
+            return state;
+    }
+}
+
+export default accountReducer;
