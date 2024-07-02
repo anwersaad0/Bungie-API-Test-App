@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { authCodeParam } from '../HomePage';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -24,9 +25,21 @@ function Navigation({ isLoaded }) {
 			</ul>
 
 			<ul className='nav-login'>
-				<li>
+
+				{/* <li>
 					<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
-				</li>
+				</li> */}
+
+				{authCodeParam ? (
+					<li>
+						<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
+					</li>
+				) : (
+					<li>
+						<NavLink className='nav-option' to="/account" >Account</NavLink>
+					</li>
+				)}
+
 			</ul>
 
 		</div>

@@ -5,7 +5,7 @@ import './HomePage.css';
 
 const authCodeQuery = window.location.search;
 const urlParams = new URLSearchParams(authCodeQuery);
-const authCodeParam = urlParams.get('code');
+export const authCodeParam = urlParams.get('code');
 
 function HomePage() {
 
