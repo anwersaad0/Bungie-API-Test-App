@@ -9,9 +9,6 @@ export const authCodeParam = urlParams.get('code');
 
 function HomePage() {
 
-    console.log('code', authCodeParam);
-    console.log('code type', typeof authCodeParam);
-
     return (
 
         <main className="homepage-root">
