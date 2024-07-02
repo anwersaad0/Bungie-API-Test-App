@@ -12,19 +12,15 @@ import D2PlayerSearch from './components/D2PlayerSearch';
 import D2ItemSearch from './components/D2ItemSearch';
 import D2Item from './components/D2Item';
 
-const authCodeQuery = window.location.search;
-const urlParams = new URLSearchParams(authCodeQuery);
-const authCodeParam = urlParams.get('code');
-
 function App() {
 
-  const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [authCode, setAuthCode] = useState(authCodeParam);
+  // const dispatch = useDispatch();
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [authCode, setAuthCode] = useState(authCodeParam);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [dispatch]);
+  // }, [dispatch]);
 
   return (
     <>

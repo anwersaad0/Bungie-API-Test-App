@@ -3,20 +3,13 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import './HomePage.css';
 
-// import { DefinitionsProvider, verbose, setApiKey, loadDefs, getInventoryItemDef, getInventoryItemLiteDef, getAllInventoryItemLiteDefs, includeTables, getPlugSetDef } from '@d2api/manifest-react';
-
-// import { getProfile, getCharacter, getVendor, BungieMembershipType, DestinyComponentType, SocketPlugSources } from "bungie-api-ts/destiny2";
-// import { getBungieNetUserById, getMembershipDataForCurrentUser } from "bungie-api-ts/user";
-
-// verbose();
-
-// includeTables(["InventoryItem", "InventoryItemLite", "PlugSet"]);
-
-// setApiKey(import.meta.env.VITE_API_KEY);
-
-// loadDefs();
+const authCodeQuery = window.location.search;
+const urlParams = new URLSearchParams(authCodeQuery);
+const authCodeParam = urlParams.get('code');
 
 function HomePage() {
+
+    
 
     return (
 
@@ -35,6 +28,7 @@ function HomePage() {
 
                 <div>
 
+                    {authCodeParam ? "you're logged in" : ""}
 
                 </div>
 
