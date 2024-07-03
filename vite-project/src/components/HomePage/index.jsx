@@ -12,11 +12,12 @@ function HomePage() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (authCodeParam !== null) getAuthToken(authCodeParam);
+        dispatch(getAuthToken(authCodeParam));
     }, [authCodeParam, dispatch]);
 
     const token = useSelector((state) => state.auth["[object Object]"]);
 
+    console.log('code', authCodeParam);
     console.log('token', token);
 
     return (

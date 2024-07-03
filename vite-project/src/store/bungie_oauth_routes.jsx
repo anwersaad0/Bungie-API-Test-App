@@ -28,17 +28,19 @@ export const getAuthToken = (code) => async (dispatch) => {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": `Basic ${btoa({clientId: clientSecret})}`,
         },
-        body: JSON.stringify({
+        body: new URLSearchParams({
+            "client_id": clientId,
+            "client_secret": clientSecret,
             "grant_type": "authorization_code",
             "code": code,
-        })
+        }).toString()
     })
 
     if (res.ok) {
         const data = await res.json();
         await dispatch(getToken(data));
+        console.log('token data', data);
     }
 }
 
