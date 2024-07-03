@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { getAuthToken } from "../../store/bungie_oauth_routes";
 import './HomePage.css';
 
 const authCodeQuery = window.location.search;
@@ -8,6 +9,15 @@ const urlParams = new URLSearchParams(authCodeQuery);
 export const authCodeParam = urlParams.get('code');
 
 function HomePage() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (authCodeParam !== null) getAuthToken(authCodeParam);
+    }, [authCodeParam, dispatch]);
+
+    const token = useSelector((state) => state.auth["[object Object]"]);
+
+    console.log('token', token);
 
     return (
 
@@ -27,6 +37,12 @@ function HomePage() {
                 <div>
 
                     {authCodeParam ? "you're logged in" : ""}
+
+                </div>
+
+                <div>
+
+
 
                 </div>
 

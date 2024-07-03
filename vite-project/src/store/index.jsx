@@ -4,9 +4,11 @@ import logger from 'redux-logger';
 import bungieReducer from './bungie_profile_routes';
 import bungieItemReducer from './bungie_item_routes';
 import playersReducer from './bungie_player_routes';
+import authReducer from './bungie_oauth_routes';
 
 const rootReducer = combineReducers({
   //session,
+  auth: authReducer,
   bungieData: bungieReducer,
   bungieItemData: bungieItemReducer,
   players: playersReducer,
