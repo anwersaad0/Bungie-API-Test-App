@@ -1,24 +1,24 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getAuthToken } from "../../store/bungie_oauth_routes";
+//import { getAuthToken } from "../../store/bungie_oauth_routes";
 import './HomePage.css';
 
-const authCodeQuery = window.location.search;
-const urlParams = new URLSearchParams(authCodeQuery);
-export const authCodeParam = urlParams.get('code');
+//const authCodeQuery = window.location.search;
+//const urlParams = new URLSearchParams(authCodeQuery);
+//export const authCodeParam = urlParams.get('code');
 
 function HomePage() {
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getAuthToken(authCodeParam));
-    }, [authCodeParam, dispatch]);
+    //useEffect(() => {
+        //dispatch(getAuthToken(authCodeParam));
+    //}, [authCodeParam, dispatch]);
 
-    const token = useSelector((state) => state.auth["[object Object]"]);
+    //const token = useSelector((state) => state.auth["[object Object]"]);
 
-    console.log('code', authCodeParam);
-    console.log('token', token);
+    //console.log('code', authCodeParam);
+    //console.log('token', token);
 
     return (
 
@@ -43,7 +43,7 @@ function HomePage() {
 
                 <div>
 
-
+                    {token ? "token active" : ""}
 
                 </div>
 

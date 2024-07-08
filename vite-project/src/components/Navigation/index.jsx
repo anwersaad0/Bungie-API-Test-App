@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authCodeParam } from '../HomePage';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthToken } from '../../store/bungie_oauth_routes';
+//import { authCodeParam } from '../HomePage';
 import './Navigation.css';
 
+const authCodeQuery = window.location.search;
+const urlParams = new URLSearchParams(authCodeQuery);
+export const authCodeParam = urlParams.get('code');
+
 function Navigation({ isLoaded }) {
-	//const sessionUser = useSelector(state => state.session.user);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+        dispatch(getAuthToken(authCodeParam));
+    }, [authCodeParam, dispatch]);
+
+	const token = useSelector((state) => state.auth["[object Object]"]);
 
 	return (
 		<div className='nav-root'>

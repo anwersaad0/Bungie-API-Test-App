@@ -40,7 +40,7 @@ export const getAuthToken = (code) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         await dispatch(getToken(data));
-        console.log('token data', data);
+        //console.log('token data', data);
     }
 }
 
