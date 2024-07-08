@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 //import { getAuthToken } from "../../store/bungie_oauth_routes";
+import { authCodeParam } from "../Navigation";
 import './HomePage.css';
 
 //const authCodeQuery = window.location.search;
@@ -43,7 +44,7 @@ function HomePage() {
 
                 <div>
 
-                    {token ? "token active" : ""}
+                    {/* {token ? "token active" : ""} */}
 
                 </div>
 
