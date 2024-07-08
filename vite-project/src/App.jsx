@@ -11,6 +11,7 @@ import D2Profile from './components/D2Profile';
 import D2PlayerSearch from './components/D2PlayerSearch';
 import D2ItemSearch from './components/D2ItemSearch';
 import D2Item from './components/D2Item';
+import D2Account from './components/D2Account';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/item/:itemHash' element={<D2Item />} />
         <Route path="/search/player" element={<D2PlayerSearch />} />
         <Route path='/profile/:memType/:memId' element={<D2Profile />} />
+        <Route path='/account' element={<D2Account />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
 

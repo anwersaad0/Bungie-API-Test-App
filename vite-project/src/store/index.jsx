@@ -5,6 +5,7 @@ import bungieReducer from './bungie_profile_routes';
 import bungieItemReducer from './bungie_item_routes';
 import playersReducer from './bungie_player_routes';
 import authReducer from './bungie_oauth_routes';
+import accountReducer from './bungie-account-routes';
 
 const rootReducer = combineReducers({
   //session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   bungieData: bungieReducer,
   bungieItemData: bungieItemReducer,
   players: playersReducer,
+  account: accountReducer,
 });
 
 
