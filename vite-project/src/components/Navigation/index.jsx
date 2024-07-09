@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
         dispatch(getAuthToken(authCodeParam));
     }, [authCodeParam, token, dispatch]);
 
-	
+	console.log('token', token);
 
 	return (
 		<div className='nav-root'>
