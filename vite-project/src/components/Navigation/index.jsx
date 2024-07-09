@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
 
 	useEffect(() => {
         dispatch(getAuthToken(authCodeParam));
-    }, [authCodeParam, token, dispatch]);
+    }, [/*authCodeParam,*/ token, dispatch]);
 
 	if (token) {
 		dispatch(refreshAuthToken(token?.refresh_token));
