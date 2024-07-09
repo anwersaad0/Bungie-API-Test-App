@@ -12,11 +12,13 @@ export const authCodeParam = urlParams.get('code');
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
 
+	const token = useSelector((state) => state.auth["[object Object]"]);
+
 	useEffect(() => {
         dispatch(getAuthToken(authCodeParam));
-    }, [authCodeParam, dispatch]);
+    }, [authCodeParam, token, dispatch]);
 
-	const token = useSelector((state) => state.auth["[object Object]"]);
+	
 
 	return (
 		<div className='nav-root'>

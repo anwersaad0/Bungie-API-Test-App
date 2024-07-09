@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 function D2Account({ token }) {
     const dispatch = useDispatch();
 
+    const account = "";
+
     useEffect(() => {
 
     }, [token, dispatch]);

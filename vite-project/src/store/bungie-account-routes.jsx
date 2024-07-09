@@ -7,13 +7,29 @@ const getAuthAccount = (account) => ({
     account
 })
 
-export const getD2AuthAccount = (memType, memId, token) => async (dispatch) => {
-    const res = await fetch(`https://www.bungie.net/Platform/Destiny2/${memType}/Profile/${memId}/?components=100,200,205,302`, {
+// export const getD2AuthAccount = (memType, memId, token) => async (dispatch) => {
+//     const res = await fetch(`https://www.bungie.net/Platform/Destiny2/${memType}/Profile/${memId}/?components=100,200,205,302`, {
+//         method: "GET",
+//         headers: {
+//             "X-API-Key": apiKey,
+//             "Authorization": token,
+//         },
+//     });
+
+//     if (res.ok) {
+//         const data = await res.json();
+//         await dispatch(getAuthAccount(data));
+//         return data;
+//     }
+// }
+
+export const getD2CurrentUser = (token) => async (dispatch) => {
+    const res = await fetch('https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser', {
         method: "GET",
         headers: {
             "X-API-Key": apiKey,
-            "Authorization": token,
-        },
+            "Authorization": `Bearer ${token}`
+        }
     });
 
     if (res.ok) {
