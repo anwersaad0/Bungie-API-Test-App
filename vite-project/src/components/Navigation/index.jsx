@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuthToken } from '../../store/bungie_oauth_routes';
+import { getAuthToken, refreshAuthToken } from '../../store/bungie_oauth_routes';
 //import { authCodeParam } from '../HomePage';
 import './Navigation.css';
 
@@ -16,6 +16,10 @@ function Navigation({ isLoaded }) {
 
 	useEffect(() => {
         dispatch(getAuthToken(authCodeParam));
+
+		if (token) {
+			dispatch(refreshAuthToken(token?.refresh_token));
+		}
     }, [authCodeParam, token, dispatch]);
 
 	console.log('token', token);
