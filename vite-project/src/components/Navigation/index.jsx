@@ -16,11 +16,11 @@ function Navigation({ isLoaded }) {
 
 	useEffect(() => {
         dispatch(getAuthToken(authCodeParam));
-
-		if (token) {
-			dispatch(refreshAuthToken(token?.refresh_token));
-		}
     }, [authCodeParam, token, dispatch]);
+
+	if (token) {
+		dispatch(refreshAuthToken(token?.refresh_token));
+	}
 
 	console.log('token', token);
 
