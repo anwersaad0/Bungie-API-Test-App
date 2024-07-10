@@ -24,7 +24,7 @@ function Navigation({ isLoaded }) {
 		}
     }, [authCodeParam, /*token,*/ dispatch]);
 
-	if (token) {
+	if (token && token !== undefined) {
 		localStorage.setItem("token", JSON.stringify(token));
 	}
 
