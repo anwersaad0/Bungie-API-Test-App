@@ -28,9 +28,9 @@ function Navigation({ isLoaded }) {
 		localStorage.setItem("token", JSON.stringify(token));
 	}
 
-	if (localStorage.getItem("token")) {
-		console.log('token', localStorage.getItem("token"));
-	}
+	// if (localStorage.getItem("token")) {
+	// 	console.log('token', localStorage.getItem("token"));
+	// }
 
 	return (
 		<div className='nav-root'>

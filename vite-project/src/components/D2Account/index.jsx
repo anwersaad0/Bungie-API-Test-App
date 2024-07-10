@@ -12,6 +12,7 @@ function D2Account() {
         dispatch(getD2CurrentUser(JSON.parse(localStorage.getItem("token")).access_token));
     }, [account, dispatch]);
 
+    console.log('account', account);
 
     return (
 
