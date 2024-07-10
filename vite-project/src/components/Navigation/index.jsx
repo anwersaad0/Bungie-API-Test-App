@@ -19,8 +19,10 @@ function Navigation({ isLoaded }) {
 
 		if (token) {
 			dispatch(refreshAuthToken(token?.refresh_token));
+		} else if (localStorage.getItem("token")) {
+			dispatch(refreshAuthToken(JSON.parse(localStorage.getItem())))
 		}
-    }, [/*authCodeParam, token,*/ dispatch]);
+    }, [authCodeParam, /*token,*/ dispatch]);
 
 	if (token) {
 		localStorage.setItem("token", JSON.stringify(token));
