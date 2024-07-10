@@ -10,7 +10,7 @@ function D2Account() {
 
     useEffect(() => {
         dispatch(getD2CurrentUser(JSON.parse(localStorage.getItem("token")).access_token));
-    }, [account, dispatch]);
+    }, [dispatch]);
 
     console.log('account', account);
 
