@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
 		if (token) {
 			dispatch(refreshAuthToken(token?.refresh_token));
 		} else if (localStorage.getItem("token")) {
-			dispatch(refreshAuthToken(JSON.parse(localStorage.getItem())))
+			//dispatch(refreshAuthToken(JSON.parse(localStorage.getItem())))
 		}
     }, [authCodeParam, /*token,*/ dispatch]);
 
@@ -28,7 +28,9 @@ function Navigation({ isLoaded }) {
 		localStorage.setItem("token", JSON.stringify(token));
 	}
 
-	console.log('token', localStorage.getItem("token"));
+	if (localStorage.getItem("token")) {
+		console.log('token', localStorage.getItem("token"));
+	}
 
 	return (
 		<div className='nav-root'>
