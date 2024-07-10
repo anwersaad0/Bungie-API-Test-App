@@ -55,7 +55,7 @@ function Navigation({ isLoaded }) {
 					<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
 				</li> */}
 
-				{ (authCodeParam === null || !localStorage.getItem("token")) ? (
+				{ (authCodeParam === null && !localStorage.getItem("token")) ? (
 					<li>
 						<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
 					</li>
