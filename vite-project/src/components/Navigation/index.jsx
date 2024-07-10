@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
 		if (token) {
 			dispatch(refreshAuthToken(token?.refresh_token));
 		} else if (localStorage.getItem("token")) {
-			//dispatch(refreshAuthToken(JSON.parse(localStorage.getItem())))
+			dispatch(refreshAuthToken(JSON.parse(localStorage.getItem("token")).refresh_token));
 		}
     }, [authCodeParam, /*token,*/ dispatch]);
 
