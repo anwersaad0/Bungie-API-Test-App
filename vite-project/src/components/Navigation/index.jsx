@@ -20,10 +20,10 @@ function Navigation({ isLoaded }) {
 		if (token) {
 			dispatch(refreshAuthToken(token?.refresh_token));
 		}
-    }, [/*authCodeParam,*/ token, dispatch]);
+    }, [/*authCodeParam, token,*/ dispatch]);
 
 	if (token) {
-		localStorage.setItem("token", token['[object Object]']);
+		localStorage.setItem("token", JSON.stringify(token));
 	}
 
 	console.log('token', localStorage.getItem("token"));
