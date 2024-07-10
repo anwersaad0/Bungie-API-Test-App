@@ -22,7 +22,11 @@ function Navigation({ isLoaded }) {
 		}
     }, [/*authCodeParam, token,*/ dispatch]);
 
-	console.log('token', token);
+	if (token) {
+		localStorage.setItem("token", token);
+	}
+
+	console.log('token', localStorage.getItem("token"));
 
 	return (
 		<div className='nav-root'>
