@@ -16,9 +16,17 @@ function D2Account() {
 
     return (
 
-        <main>
+        <main className="account-page-root">
 
-            <div>
+            <div className="account-page-container">
+
+                <div className="account-page-header-container">
+                    {account?.Response?.bungieNetUser?.uniqueName}
+                </div>
+
+                <div>
+                    
+                </div>
 
             </div>
 

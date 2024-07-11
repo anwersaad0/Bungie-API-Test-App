@@ -39,6 +39,8 @@ export const getAuthToken = (code) => async (dispatch) => {
         const data = await res.json();
         await dispatch(getToken(data));
         //console.log('token data', data);
+    } else {
+        return null;
     }
 }
 
@@ -59,6 +61,8 @@ export const refreshAuthToken = (refresh) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         await dispatch(refreshToken(data));
+    } else {
+        return null;
     }
 }
 
