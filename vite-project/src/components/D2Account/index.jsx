@@ -2,6 +2,22 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getD2CurrentUser } from "../../store/bungie-account-routes";
+import './D2Account.css';
+
+import {
+    DefinitionsProvider,
+    verbose,
+    setApiKey,
+    loadDefs,
+    getInventoryItemDef,
+    getInventoryItemLiteDef,
+    getSandboxPerkDef,
+    includeTables,
+} from '@d2api/manifest-react';
+
+verbose();
+
+setApiKey(import.meta.env.VITE_API_KEY)
 
 function D2Account() {
     const dispatch = useDispatch();

@@ -1,0 +1,11 @@
+.account-page-header-container {
+    color: white;
+    background: rgb(17, 17, 17);
+    margin: 8px;
+    padding: 16px;
+
+    font-size: 32px;
+    font-weight: bolder;
+
+    border-radius: 16px;
+}
