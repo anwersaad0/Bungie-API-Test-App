@@ -4,6 +4,18 @@
     align-items: center;
 }
 
+.no-account-message {
+    color: white;
+    background: rgb(17, 17, 17);
+    margin: 8px;
+    padding: 16px 24px;
+
+    font-size: 24px;
+    font-weight: bolder;
+
+    border-radius: 16px;
+}
+
 .account-page-header-container {
     color: white;
     background: rgb(17, 17, 17);

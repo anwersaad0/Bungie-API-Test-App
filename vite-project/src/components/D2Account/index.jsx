@@ -22,6 +22,20 @@ setApiKey(import.meta.env.VITE_API_KEY);
 loadDefs();
 
 function D2Account() {
+    if (!localStorage.getItem("token")) {
+        return (
+            <main className="account-page-root no-account">
+
+                <div className="no-account-message">
+
+                    Pardon our dust, but it looks like you're not signed in.
+
+                </div>
+
+            </main>
+        )
+    }
+
     const dispatch = useDispatch();
     const fallback = <b>Loading Account Details...</b>;
 
@@ -77,7 +91,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
             <div>
 
-                <p>testing</p>
+                {/* <p>testing</p> */}
 
             </div>
 
