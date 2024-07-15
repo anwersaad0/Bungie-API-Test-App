@@ -28,3 +28,7 @@
     border-radius: 16px;
 }
 
+.account-details-container {
+    display: flex;
+}
+

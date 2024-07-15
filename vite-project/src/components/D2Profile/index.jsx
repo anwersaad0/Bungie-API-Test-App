@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getD2Profile } from "../../store/bungie_profile_routes";
 import { CLASS_LIST, RACE_LIST } from "./characterNumbers";
-import D2Item from "../D2Item";
 import './D2Profile.css';
 
 import {

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getD2CurrentUser } from "../../store/bungie-account-routes";
+import { CLASS_LIST, RACE_LIST } from "../D2Profile/characterNumbers";
 import './D2Account.css';
 
 import {
@@ -58,7 +59,7 @@ function D2Account() {
                     </div>
 
                     <div>
-                        <D2AccountDetails memType={account?.Response?.destinyMemberships[0]?.membershipType} memId={account?.Response?.destinyMemberships[0]?.membershipId} token={JSON.parse(localStorage.getItem("token")).access_token}/>
+                        <D2AccountDetails memType={account?.Response?.destinyMemberships[0]?.membershipType} memId={account?.Response?.destinyMemberships[0]?.membershipId} token={JSON.parse(localStorage.getItem("token")).access_token} />
                     </div>
 
                     <div>
@@ -84,19 +85,56 @@ function D2AccountDetails({ memType, memId, token }) {
         dispatch(getD2AccountProfile(memType, memId, token));
     }, [memType, memId, token, dispatch]);
 
+    const characterList = (accountProfile ? Object.values(accountProfile?.Response?.characters?.data) : []);
+    const characterGear = (accountProfile ? Object.values(accountProfile?.Response?.characterEquipment?.data) : []);
+
+    const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i]]) : []);
+
     console.log("accProf", accountProfile);
 
     return (
         <div className="account-details-root">
 
-            <div>
+            <div className="account-details-container">
 
-                {/* <p>testing</p> */}
+                {characterZip.map(([character, equippedGear]) => (
+                    <div className="account-character-container">
+
+                        <div>
+
+                            <img src={`https://www.bungie.net${character?.emblemBackgroundPath}`} ></img>
+
+                            <div >
+                                {RACE_LIST[character?.raceType]} {CLASS_LIST[character?.classType]} {character?.light}
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            
+
+                        </div>
+
+                    </div>
+                ))}
 
             </div>
 
         </div>
     );
+}
+
+function EquippedItem({ itemHash }) {
+    const exampleWep = getInventoryItemLiteDef(itemHash);
+    const icon = exampleWep?.displayProperties.icon;
+
+    return (
+        <div className="item-icon-container">
+            <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
+            <div className="item-name">{exampleWep?.displayProperties?.name}</div>
+        </div>
+    )
 }
 
 export default D2Account
