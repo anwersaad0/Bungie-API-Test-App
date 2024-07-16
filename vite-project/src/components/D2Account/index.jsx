@@ -112,7 +112,17 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         <div>
 
-                            
+                            <div>
+
+                            </div>
+
+                            <div>
+
+                                <div>
+                                    
+                                </div>
+
+                            </div>
 
                         </div>
 
