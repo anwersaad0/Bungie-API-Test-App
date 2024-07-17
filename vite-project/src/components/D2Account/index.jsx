@@ -64,6 +64,10 @@ function D2Account() {
 
                     <div>
 
+                        <div>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -144,12 +148,6 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         </div>
 
-                        <div>
-
-                            
-
-                        </div>
-
                     </div>
                 ))}
 
@@ -157,6 +155,10 @@ function D2AccountDetails({ memType, memId, token }) {
 
         </div>
     );
+}
+
+function D2AccountInv() {
+
 }
 
 function EquippedItem({ itemHash }) {
@@ -167,6 +169,23 @@ function EquippedItem({ itemHash }) {
         <div className="item-icon-container">
             <img className="item-icon" src={`https://www.bungie.net${icon}`}></img>
             <div className="item-name">{exampleWep?.displayProperties?.name}</div>
+        </div>
+    )
+}
+
+function ActivePerk({ perkHash }) {
+    const perk = getSandboxPerkDef(perkHash);
+    const icon = perk?.displayProperties?.icon;
+    //console.log(`${perk?.displayProperties?.name}`, perk);
+
+    return (
+        <div>
+            {icon ? (
+                <img className="active-perk-icon" src={`https://www.bungie.net${icon}`}></img>
+            ) : (
+                <div></div>
+            )}
+
         </div>
     )
 }
