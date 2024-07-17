@@ -119,10 +119,34 @@ function D2AccountDetails({ memType, memId, token }) {
                             <div>
 
                                 <div>
-                                    
+                                    <EquippedItem itemHash={equippedGear?.items[0]?.itemHash} />
+                                </div>
+
+                                <div>
+                                    <EquippedItem itemHash={equippedGear?.items[1]?.itemHash} />
+                                </div>
+
+                                <div>
+                                    <EquippedItem itemHash={equippedGear?.items[2]?.itemHash} />
                                 </div>
 
                             </div>
+
+                            <div>
+
+                                <EquippedItem itemHash={equippedGear?.items[3]?.itemHash} />
+                                <EquippedItem itemHash={equippedGear?.items[4]?.itemHash} />
+                                <EquippedItem itemHash={equippedGear?.items[5]?.itemHash} />
+                                <EquippedItem itemHash={equippedGear?.items[6]?.itemHash} />
+                                <EquippedItem itemHash={equippedGear?.items[7]?.itemHash} />
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            
 
                         </div>
 
