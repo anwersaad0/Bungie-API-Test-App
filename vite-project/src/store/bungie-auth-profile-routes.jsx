@@ -23,12 +23,12 @@ export const getD2AuthProfile = (memType, memId, token) => async (dispatch) => {
     }
 }
 
-const initState = {}
+const initState = {};
 
 function authProfileReducer(state = initState, action) {
     let newState;
     switch(action.type) {
-        case GET_ACCOUNT_PROFILE:
+        case GET_AUTH_PROFILE:
             newState = {...state}
             newState[action.profile] = action.profile;
             return newState;
@@ -36,3 +36,5 @@ function authProfileReducer(state = initState, action) {
             return state;
     }
 }
+
+export default authProfileReducer;

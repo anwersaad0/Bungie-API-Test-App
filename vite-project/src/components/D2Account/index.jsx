@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getD2CurrentUser } from "../../store/bungie-account-routes";
 import { CLASS_LIST, RACE_LIST } from "../D2Profile/characterNumbers";
 import './D2Account.css';
+import { getD2AuthProfile } from "../../store/bungie-auth-profile-routes";
 
 import {
     DefinitionsProvider,
@@ -15,7 +16,7 @@ import {
     getSandboxPerkDef,
     includeTables,
 } from '@d2api/manifest-react';
-import { getD2AccountProfile } from "../../store/bungie_profile_routes";
+
 
 verbose();
 includeTables(["InventoryItemLite", "SandboxPerk", "EquipmentSlot"]);
@@ -83,10 +84,10 @@ function D2Account() {
 function D2AccountDetails({ memType, memId, token }) {
     const dispatch = useDispatch();
 
-    const accountProfile = useSelector((state) => state.bungieData["[object Object]"]);
+    const accountProfile = useSelector((state) => state.authProfile["[object Object]"]);
 
     useEffect(() => {
-        dispatch(getD2AccountProfile(memType, memId, token));
+        dispatch(getD2AuthProfile(memType, memId, token));
     }, [memType, memId, token, dispatch]);
 
     const characterList = (accountProfile ? Object.values(accountProfile?.Response?.characters?.data) : []);
