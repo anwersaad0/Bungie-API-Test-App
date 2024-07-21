@@ -92,6 +92,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
     const characterList = (accountProfile ? Object.values(accountProfile?.Response?.characters?.data) : []);
     const characterGear = (accountProfile ? Object.values(accountProfile?.Response?.characterEquipment?.data) : []);
+    const characterInv = (accountProfile ? Object.values(accountProfile?.Response?.characterInventories?.data): []);
 
     const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i]]) : []);
 
