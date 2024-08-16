@@ -13,6 +13,7 @@ import {
     loadDefs,
     getInventoryItemDef,
     getInventoryItemLiteDef,
+    getInventoryBucketDef,
     getSandboxPerkDef,
     includeTables,
 } from '@d2api/manifest-react';
@@ -94,16 +95,17 @@ function D2AccountDetails({ memType, memId, token }) {
     const characterGear = (accountProfile ? Object.values(accountProfile?.Response?.characterEquipment?.data) : []);
     const characterInv = (accountProfile ? Object.values(accountProfile?.Response?.characterInventories?.data): []);
 
-    const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i]]) : []);
+    const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i], characterInv[i]]) : []);
 
-    console.log("accProf", accountProfile);
+    //console.log("accProf", accountProfile);
+    console.log("zip", characterZip);
 
     return (
         <div className="account-details-root">
 
             <div className="account-details-container">
 
-                {characterZip.map(([character, equippedGear]) => (
+                {characterZip.map(([character, equippedGear, inventory]) => (
                     <div className="account-character-container">
 
                         <div>
@@ -150,6 +152,12 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         </div>
 
+                        <div>
+
+                            
+
+                        </div>
+
                     </div>
                 ))}
 
@@ -160,7 +168,12 @@ function D2AccountDetails({ memType, memId, token }) {
 }
 
 function D2AccountInv() {
+    //const 
+    return (
+        <div>
 
+        </div>
+    )
 }
 
 function EquippedItem({ itemHash }) {
