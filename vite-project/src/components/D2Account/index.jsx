@@ -154,7 +154,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         <div>
 
-                            
+                            < D2AccountInv inventory={inventory} />
 
                         </div>
 
@@ -167,11 +167,17 @@ function D2AccountDetails({ memType, memId, token }) {
     );
 }
 
-function D2AccountInv() {
+function D2AccountInv({inventory}) {
     //const 
     return (
         <div>
+            {/* {inventory.map(({itemHash}) => (
+                <div>
 
+                    < EquippedItem itemHash={itemHash} />
+
+                </div>
+            ))} */}
         </div>
     )
 }
