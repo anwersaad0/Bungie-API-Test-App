@@ -22,6 +22,7 @@ The live site can be accessed [here](https://lfpeek.vercel.app/).
 
 ### Planned Features for the Future:
 - OAuth integration
+- Item Swap
 
 ## Technologies Used:
 - JS
