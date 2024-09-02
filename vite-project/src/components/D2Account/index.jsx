@@ -93,7 +93,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
     const characterList = (accountProfile ? Object.values(accountProfile?.Response?.characters?.data) : []);
     const characterGear = (accountProfile ? Object.values(accountProfile?.Response?.characterEquipment?.data) : []);
-    const characterInv = (accountProfile ? Object.values(accountProfile?.Response?.characterInventories?.data): []);
+    const characterInv = (accountProfile ? Object.values(accountProfile?.Response?.characterInventories?.data) : []);
 
     const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i], characterInv[i]]) : []);
 
@@ -121,6 +121,8 @@ function D2AccountDetails({ memType, memId, token }) {
                         <div>
 
                             <div>
+
+                                <EquippedItem itemHash={equippedGear?.items[11]?.itemHash} />
 
                             </div>
 
@@ -150,6 +152,16 @@ function D2AccountDetails({ memType, memId, token }) {
 
                             </div>
 
+                            <div>
+
+                                <EquippedItem itemHash={equippedGear?.items[8]?.itemHash} />
+
+                                <EquippedItem itemHash={equippedGear?.items[9]?.itemHash} />
+
+                                <EquippedItem itemHash={equippedGear?.items[10]?.itemHash} />
+
+                            </div>
+
                         </div>
 
                         <div>
@@ -167,7 +179,7 @@ function D2AccountDetails({ memType, memId, token }) {
     );
 }
 
-function D2AccountInv({inventory}) {
+function D2AccountInv({ inventory }) {
     //const 
     return (
         <div>
