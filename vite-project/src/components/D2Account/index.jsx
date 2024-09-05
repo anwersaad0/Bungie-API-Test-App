@@ -183,6 +183,9 @@ function D2AccountInv({ inventory }) {
     //const 
     return (
         <div>
+
+            <h2> Inventory </h2>
+            
             {/* {inventory.map(({itemHash}) => (
                 <div>
 
