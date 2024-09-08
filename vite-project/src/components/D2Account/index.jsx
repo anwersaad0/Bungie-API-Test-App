@@ -180,7 +180,12 @@ function D2AccountDetails({ memType, memId, token }) {
 }
 
 function D2AccountInv({ inventory }) {
-    //const 
+    const invItems = [];
+    
+    // for (let item in inventory) {
+        
+    // }
+
     return (
         <div>
 
