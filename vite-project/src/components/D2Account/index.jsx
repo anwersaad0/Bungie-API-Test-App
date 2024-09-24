@@ -98,7 +98,7 @@ function D2AccountDetails({ memType, memId, token }) {
     const characterZip = (accountProfile ? characterList.map((x, i) => [x, characterGear[i], characterInv[i]]) : []);
 
     //console.log("accProf", accountProfile);
-    console.log("zip", characterZip);
+    //console.log("zip", characterZip);
 
     return (
         <div className="account-details-root">
@@ -118,7 +118,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         </div>
 
-                        <div>
+                        <div className="equipped-items-container">
 
                             <div>
 
@@ -164,7 +164,7 @@ function D2AccountDetails({ memType, memId, token }) {
 
                         </div>
 
-                        <div>
+                        <div className="inventory-container">
 
                             < D2AccountInv inventory={inventory} />
 
@@ -180,24 +180,28 @@ function D2AccountDetails({ memType, memId, token }) {
 }
 
 function D2AccountInv({ inventory }) {
-    const invItems = [];
+    //const invItems = [];
     
+    console.log('inv', inventory);
+
     // for (let item in inventory) {
-        
+    //     invItems.push(item);
     // }
+
+    //console.log('invItems', invItems);
 
     return (
         <div>
 
             <h2> Inventory </h2>
             
-            {/* {inventory.map(({itemHash}) => (
+            {inventory?.items.map(({itemHash}) => (
                 <div>
 
                     < EquippedItem itemHash={itemHash} />
 
                 </div>
-            ))} */}
+            ))}
         </div>
     )
 }

@@ -15,14 +15,14 @@ function Navigation({ isLoaded }) {
 	const token = useSelector((state) => state.auth["[object Object]"]);
 
 	useEffect(() => {
-        dispatch(getAuthToken(authCodeParam));
+		dispatch(getAuthToken(authCodeParam));
 
 		if (token) {
 			dispatch(refreshAuthToken(token?.refresh_token));
 		} else if (localStorage.getItem("token")) {
 			dispatch(refreshAuthToken(JSON.parse(localStorage.getItem("token")).refresh_token));
 		}
-    }, [authCodeParam, /*token,*/ dispatch]);
+	}, [authCodeParam, /*token,*/ dispatch]);
 
 	if (token && token !== undefined) {
 		localStorage.setItem("token", JSON.stringify(token));
@@ -55,14 +55,20 @@ function Navigation({ isLoaded }) {
 					<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
 				</li> */}
 
-				{ (authCodeParam === null && !localStorage.getItem("token")) ? (
+				{(authCodeParam === null && !localStorage.getItem("token")) ? (
 					<li>
 						<Link className='nav-option' to={`https://www.bungie.net/en/OAuth/Authorize?client_id=${import.meta.env.VITE_CLIENT_ID}&response_type=code`} >Sign In</Link>
 					</li>
 				) : (
-					<li>
-						<NavLink className='nav-option' to="/account" >Account</NavLink>
-					</li>
+					<>
+						<li>
+							<NavLink className='nav-option' to="/account" >Account</NavLink>
+						</li>
+
+						<li>
+							<NavLink className='nav-option' to="/" > Sign Out </NavLink>
+						</li>
+					</>
 				)}
 
 			</ul>
